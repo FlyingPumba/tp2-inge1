@@ -1,0 +1,128 @@
+\subsection{Procesos actuales de la empresa}
+
+A partir de la información que obtuvimos mediante el proceso de elicitación podemos dividir los procesos que se llevan a cabo en la empresa en tres grupos:
+\begin{enumerate}
+    \item \textbf{Creación de los proyectos}:
+    \begin{enumerate}
+        \item Los gerentes o los PM son contactadas por potenciales clientes.
+        \item Los gerentes seleccionan un PM, quien llevará adelante el proyecto.
+        \item El PM asignado al proyecto define el alcance, duración y condiciones del proyecto con el cliente y elige el proveedor utilizando una base de datos de proveedores creada en Excel.
+        \item Los gerentes valida el proyecto definido por el PM, negociando con él su comisión.
+        \item Los gerentes y el PM confeccionan los contratos, a partir de templates en Word, con el cliente y el proveedor.
+        \item Todas las partes firman los contratos en una escribania, donde un escribano certifica las firmas.
+    \end{enumerate}    
+    \item \textbf{Seguimiento de los proyectos}:
+    \begin{enumerate}
+        \item El PM lleva adelante el seguimiento de los proyectos, creando un archivo excel por cada proyecto que supervisa.   
+        \item Los gerentes obtienen actualizaciones del estado de los proyectos a partir de llamados telefonicos con los PM.
+        \item En caso de una cancelación o incumplimiento del proveedor, el PM busca otro poveedor.
+        \item En caso en que un cliente manifiesta una disconfomidad con el PM, el gerente selecciona otro PM para llevar adelante el proyecto.
+        \item Si surgen adicionales, estos serán considerados como nuevos proyectos.
+    \end{enumerate}
+    \item \textbf{Finalización de los proyectos}: consistente en realizar los diversos pagos y cobros.    
+\end{enumerate}
+
+\textbf{Limitaciones actuales}
+
+Actualmente observamos en la empresa las siguientes limitaciones:
+\begin{itemize}
+    \item La actualización de la base de datos de proveedores es engorrosa, ya que cada miembro de DC Constructores tiene su versión de la misma.
+    \item Actualmente la información sobre los proyectos esta dispersa en varios archivos, dificultando su seguimiento.
+    \item Los gerentes se enteran tarde sobre los problemas en los proyectos, ya que deben comunicarse con cada PM para obtener actualizaciones o esperar su llamado.
+    \item Gerentes realizan tareas tediosas que no agregan valor, tales como búsqueda de proveedores, creaciones de contratos y llamados constantes a los PM.
+    \item La modalidad actual no es escalable.
+    \item No hay registro sobre proyectos pasados que podrian llevar a mejoras en la selección de los proveedores y de los PM.
+\end{itemize}
+
+\subsection{Presentación sistema}
+El sistema que proponemos se caracteriza por simplificar las tareas dentro de la empresa, optimizar la elección de los proveedores, agilizar las comunicaciones, y permitir controles inmediatos. Para lograr estos fines, suponemos las siguientes presunciones de dominio:
+
+\begin{enumerate}
+    \item \textbf{Estructura de la empresa}:
+    \begin{enumerate}
+        \item Gerente
+        \item PMs
+        \item Empleados que se encargan de hacer Data entry
+        \item Contadores
+    \end{enumerate}    
+    \item \textbf{Creación de los proyectos}:
+    \begin{enumerate}
+        \item El cliente pide propuesta de proyecto o bien al PM, o bien al Gerente o bien al Sistema
+        \item El cliente tiene acceso a Internet
+        \item Todo proyecto nuevo se tiene que registrar en el sistema
+        \item Cada proyecto tiene exactamente un PM asignado
+        \item Hay un PM al menos en la empresa
+        \item El PM es el que negocia alcance, duración y condiciones con el cliente
+        \item El gerente siempre debe validar a los proveedores
+        \item Todo proveedor tiene que tener el seguro de caución actualizado al día
+        \item Los PM tienen una comisión por proyecto
+        \item Todos los contratos deben ser certificados por una escribanía
+    \end{enumerate}    
+    \item \textbf{Seguimiento de los proyectos}:
+    \begin{enumerate}
+        \item El PM es el encargado de contactar al proveedor y saber si hay un problema
+    \end{enumerate}
+    \item \textbf{Finalización de los proyectos}:
+    \begin{enumerate}
+        \item Todo proyecto finaliza
+        \item El PM es el encargado de finalizar el proyecto
+        \item El contador se encarga de manejar todos los pagos cuando se termina el proyecto
+    \end{enumerate}
+\end{enumerate}
+
+
+\subsection{Requerimientos}
+
+Ahora, para lograr mejorar los procesos de la empresa, nuestro Sistema debe cumplir los siguientes requerimientos:
+
+\begin{enumerate}
+
+	\item[] \textbf{Creación de los proyectos}:
+    
+	\item Proveer interfaz de mandar propuesta
+	\item Cliente manda propuesta mediante el Sistema $\rightarrow$ Notificar gerente
+	\item Proveer interfaz de creación de proyecto
+	\item Proveer interfaz gráfica de carga de datos de los PM
+	\item Crear ranking de PM
+	\item Evaluaciones cargadas en el sistema
+	\item Recalcular ranking de PMs usando las evaluaciones
+	\item Ordenar PMs por cantidad de proyectos actuales
+	\item Proveer interfaz gráfica selección de PM
+	\item Nuevo proyecto registrado en el sistema y PM asignado $\rightarrow$ Notificar gerente y PM
+	\item Sistema provee interfaz de cargar y mandar propuesta
+	\item Sistema provee interfaz de cargar y mandar respuesta
+	\item Proveer interfaz de carga de alcance, duración y condiciones
+	\item Notificar a los proveedores cuando su seguro este vencido
+	\item Proveer interfaz de carga de datos de proveedores
+	\item Crear ranking de proveedores
+	\item Evaluaciones actualizadas en el sistema
+	\item Recalcular ranking de proveedores usando las evaluaciones
+	\item Aplicar filtros para proveedores (rubro, ubicación geográfica)	
+	\item Proveer interfaz gráfica de consulta de disponibilidad
+	\item Consultar proveedores con seguro de caución vencido
+	\item Proveedores seleccionados $\rightarrow$ Sistema manda mail con formulario pidiendo presupuesto y disponibilidad para el proyecto actual
+	\item Proveedor llena el formulario $\rightarrow$ Notificar respuesta del proveedor al PM	
+	\item Proveer interfaz gráfica selección de proveedor
+	\item Proveedores asignados $\rightarrow$ Notificar a los proveedores elegidos y mandar mail de agradecimiento a los no elegidos
+	\item Proveedores asignados $\rightarrow$ pedir validación Gerente
+	\item Proveer interfaz de validar proveedores
+	\item Proveer interfaz de elegir precontrato
+	\item Notificar PM, Cliente y Proveedores que ya está todo el proyecto validado y hay que firmar los contratos
+	
+    \item[] \textbf{Seguimiento de los proyectos}:
+
+	\item Proveedor nuevo y anterior iguales
+	\item Proveer interfaz para cargar actualizaciones de proyecto
+	\item Detectar si el PM no sube actualizaciones del proyecto
+	\item Cambios o Problemas en proyecto $\rightarrow$ Notificar al Gerente
+	\item Proveer interfaz para marcar como cancelado un proyecto
+	
+    \item[] \textbf{Finalización de los proyectos}:
+
+	\item Proveer interfaz para marcar como finalizado un proyecto
+	\item El proyecto se marca como finalizado $\rightarrow$ Notificar al Gerente
+	\item Enviar detalles y costos al Contador
+	\item Proveer interfaz para evaluar al PM
+	
+	
+\end{enumerate}
