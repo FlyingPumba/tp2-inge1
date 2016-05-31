@@ -1,234 +1,234 @@
-\subsection{Interacciones y alcance del sistema: Diagrama de Contexto}
-A continuación mostramos el Diagrama de Contexto de la empresa. En el mismo se detallan las interacciones entre los diversos agentes de la empresa y su interacción con el sistema propuesto.
+\subsection{Interacciones con  el sistema: representado con casos de uso}
 
-Debido a la gran cantidad de interacciones entre los agentes decidimos, por una cuestión de comprensibilidad, separar el diagrama de contexto en dos partes complementarias. Por un lado se presentan las interacciones de todos los agentes con el Sistema a implementar. Por el otro, se muestran las acciones que suceden entre los demás agentes entre si. Estos diagramas no deben ser leídos por separado, sino que son dos partes del mismo, que representa el Diagrama de Contexto final entre todos los agentes.
-
-Además, para evitar confusiones y reducir el espacio, cada vez que se daba el caso de que había múltiples flechas de interacción entre dos agentes, la simplificamos en una sola donde listamos todas las formas en las que un agente actúa sobre el otro. Por eso, hay múltiples líneas de texto en cada flecha y estas deben ser leídas como una flecha en sí por cada línea de texto.
+En primera instancia tenemos que representar las acciones que los diversos actores realizan en el sistema o a traves de él. Para esto modelaremos nuestro proyecto usando casos de uso, y
+mostraremos los detalles de cada uno de estos.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/contexto-con-sistema.png}
+    %\includegraphics[width=\textwidth]{imagenes/casos-de-uso1.png}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/contexto-sin-sistema.png}
+    %\includegraphics[width=\textwidth]{imagenes/casos-de-uso2.png}
 \end{figure}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+  \hline
+  \multicolumn{2}{|l|}{CU1: Registrar} \\\hline
+  \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
+  \multicolumn{2}{|l|}{Pre: true} \\\hline
+  \multicolumn{2}{|l|}{Post: El cliente está registrado en el sistema} \\\hline
+   Curso normal & Curso alternativo\\ \hline
+   1- El cliente solicita al sistema que le permita registrarse & \\ \hline
+   2- El sistema confirma y pide al cliente que ingrese su nombre y clave & \\ \hline
+   3- El cliente ingresa su nombre y clave & 3.1- El cliente ingresa un nombre o clave inválidos. Ir a Fin CU1\\ \hline
+   4- El sistema guarda el nombre y la clave del cliente & \\ \hline
+   5- Fin CU1 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU2: Enviar propuesta} \\\hline
+    \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
+    \multicolumn{2}{|l|}{Pre: El cliente está registrado en el sistema} \\\hline
+    \multicolumn{2}{|l|}{Post: El sistema guarda la propuesta del cliente, para que después la obtenga el gerente} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El cliente solicita al sistema que le permita enviar una propuesta & \\ \hline
+     2- El sistema confirma y pide al cliente que ingrese su nombre y clave & \\ \hline
+     3- El cliente ingresa su nombre, clave y su propuesta  & 3.1- El cliente ingresa un nombre o cleve incorrectos. Ir a Fin CU2\\ \hline
+     4- El sistema guarda la propuesta del cliente & \\ \hline
+     5- Fin CU2 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU3: Acepta o rechaza presupuesto} \\\hline
+    \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
+    \multicolumn{2}{|l|}{Pre: El cliente acepto el alcance} \\\hline
+    \multicolumn{2}{|l|}{Post: El sistema guarda la aceptación del cliente} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El cliente recibe el presupuesto & \\ \hline
+     2- El cliente acepta la propuesta & 2.1- El cliente rechaza el presupuesto. Ir a CU(gerente envía presupuesto)\\ \hline
+     3- El sistema guarda la aceptación del cliente &\\ \hline
+     4- Fin CU3 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU4: Acepta o rechaza alcance} \\\hline
+    \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
+    \multicolumn{2}{|l|}{Pre: El cliente envío una propuesta} \\\hline
+    \multicolumn{2}{|l|}{Post: El sistema guarda la aceptación del cliente} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El cliente recibe el alcance & \\ \hline
+     2- El cliente acepta el alcance & 2.1- El cliente rechaza el presupuesto. Ir a CU(gerente envía alcance)\\ \hline
+     3- El sistema guarda la aceptación del cliente  &\\ \hline
+     4- Fin CU4 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU5: Sistema pide evaluación de PM al finalizar el proyecto} \\\hline
+    \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
+    \multicolumn{2}{|l|}{Pre: El proyecto finalizo} \\\hline
+    \multicolumn{2}{|l|}{Post: El cliente recibe el pedido de evaluación de un PM} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El sistema se actualiza y observa que tiene un proyecto como finalizado & \\ \hline
+     2- El sistema guarda el pedido de evaluación del PM para que el cliente lo observe. &\\ \hline
+     3- Fin CU5 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU6: Evalúa PM} \\\hline
+    \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
+    \multicolumn{2}{|l|}{Pre: El cliente recibio del sistema un pedido de evalución para el PM} \\\hline
+    \multicolumn{2}{|l|}{Post: El cliente evalúa al PM} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El cliente pide al sistema que le permita evaluar al PM & \\ \hline
+     2- El sistema confirma y pide al cliente su nombre y clave. & \\ \hline
+     3- El cliente ingresa su nombre y clave & 3.1- El cliente ingresa un nombre o clave incorrectos. Ir a FinCU6\\ \hline
+     4- El sistema confirma al cliente y muestra la encuesta para evaluar al PM & \\ \hline
+     5- El cliente completa la encuesta y pide al sistema que la guarde & \\ \hline
+     6- El sistema guarda la encuesta & \\ \hline
+     7- Fin CU6 & \\ \hline
+  \end{tabular}
+}
+  %\caption{Tabla casos de uso}
+  %\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU7: Registrarse} \\\hline
+    \multicolumn{2}{|l|}{Actor: Proveedor} \\\hline
+    \multicolumn{2}{|l|}{Pre: true} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor queda registrado en el sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El proveedor solicita al sistema que le permita registrarse & \\ \hline
+     2- El sistema confirma y pide al proveedor que ingrese su nombre y clave & \\ \hline
+     3- El proveedor ingresa su nombre y clave & 3.1- El proveedor ingresa un nombre o clave inválidos. Ir a Fin CU7\\ \hline
+     4- El sistema guarda el nombre y la clave del proveedor & \\ \hline
+     5- Fin CU7 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU8: Actualizar sus datos} \\\hline
+    \multicolumn{2}{|l|}{Actor: Proveedor} \\\hline
+    \multicolumn{2}{|l|}{Pre: El proveedor está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor tiene actualizada su información en el sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El proveedor solicita al sistema que le permita actualizar sus datos & \\ \hline
+     2- El sistema confirma y muestra los datos actuales del proveedor & \\ \hline
+     3- El proveedor modifica sus datos &\\ \hline
+     4- El sistema guarda los nuevos datos del proveedor & \\ \hline
+     5- Fin CU8 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU9: Actualizar datos de seguro de caución} \\\hline
+    \multicolumn{2}{|l|}{Actor: Proveedor} \\\hline
+    \multicolumn{2}{|l|}{Pre: El proveedor está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor tiene actualizado los datos del seguro de caución} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El proveedor solicita al sistema que le permita actualizar sus datos de seguro de caución & \\ \hline
+     2- El sistema confirma y muestra los datos actuales del proveedor & \\ \hline
+     3- El proveedor carga su nuevo seguro de caución &\\ \hline
+     4- El sistema guarda los nuevos datos del proveedor & \\ \hline
+     5- Fin CU9 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU10: Propone presupuesto} \\\hline
+    \multicolumn{2}{|l|}{Actor: Proveedor} \\\hline
+    \multicolumn{2}{|l|}{Pre: El proveedor está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor tiene actualizado los datos del seguro de caución} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El proveedor solicita al sistema que le permita actualizar sus datos de seguro de caución & \\ \hline
+     2- El sistema confirma y muestra los datos actuales del proveedor & \\ \hline
+     3- El proveedor carga su nuevo seguro de caución &\\ \hline
+     4- El sistema guarda los nuevos datos del proveedor & \\ \hline
+     5- Fin CU10 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
 
 \newpage
-
-\subsection{Requerimientos del sistema: Diagrama de Objetivo}
-En este diagrama detallamos como la implementación del sistema propuesto colaborará con la mejora de los procesos de la empresa.
-
-El diagrama de objetivos se presenta con la idea de ser leído de izquierda a derecha. Frecuentemente, tratamos de colocar los objetivos que se suceden entre sí de esta forma para 'simular' los diferentes pasos que se suceden a través del tiempo.
-
-Separamos el diagrama en varias partes (como el Diagrama de Contexto) varias veces debido al tamaño del mismo. Estos gráficos se deben leer como las diferentes partes de un mismo diagrama. Así, presentamos primero las ramas superiores que engloban los objetivos de más alto nivel y luego mostramos como se va completando cada rama con su diagrama correspondiente.
-
-\subsubsection{Objetivos principales}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-principales.png}
-\end{figure}
-
-En esta figura se ven los objetivos de mas alto nivel que luego detallamos en las siguientes subsecciones para cada uno de los subobjetivos que aparecen.
-
-\subsubsection{Creación del proyecto}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=18cm, keepaspectratio]{imagenes/objetivos-creacion-principal.png}
-\end{figure}
-
-Acá se pueden ver los objetivos primarios de Creación de proyecto, el desglose se muestra en los próximos gráficos donde en cada figura podemos ver el detalle de cada subobjetivo con orden de aparición de izquierda a derecha.
-
-\vspace{1em}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-creacion-1.png}
-\end{figure}
-
-Desglose de 'Conocer propuestas del proyecto', primer subobjetivo de 'Mejorar creación de proyecto'.
-
-\vspace{1em}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-creacion-2.png}
-\end{figure}
-
-Desglose de 'Registrar proyecto nuevo y asignar PM en el sistema', segundo subobjetivo de 'Mejorar creación de proyecto'.
-
-\vspace{1em}
-
-\begin{figure}[H]
-	\hspace{-2cm}
-    \includegraphics[width=20cm]{imagenes/objetivos-creacion-3.png}
-\end{figure}
-
-Desglose de 'Cargar alcance, duración y condiciones del proyecto', tercer subobjetivo de 'Mejorar creación de proyecto'.
-
-\vspace{1em}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-creacion-4.png}
-\end{figure}
-
-Desglose de 'Asignar proveedores y pedir validación del Gerente', cuarto subobjetivo de 'Mejorar creación de proyecto'.
-
-\vspace{1em}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-creacion-5.png}
-\end{figure}
-
-Desglose de 'Validar proveedores y elegir precontrato', quinto subobjetivo de 'Mejorar creación de proyecto'.
-
-\vspace{1em}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-creacion-6.png}
-\end{figure}
-
-Desglose de 'Notificar PM, Gerente y proveedores y firmar contrato', sexto subobjetivo de 'Mejorar creación de proyecto'.
-
-\newpage
-
-\subsubsection{Selección mejor PM}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-seleccion-mejor-pm-principal.png}
-\end{figure}
-
-Estos son los subobjetivos principales para elegir el mejor PM para un proyecto dado. El desglose de los subobjetivos queda en las figuras siguientes.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/objetivos-seleccion-mejor-pm-1-1.png}
-\end{figure}
-
-Podemos ver el primer subobjetivo de 'Lograr saber cual es el PM idoneo'.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-seleccion-mejor-pm-1-2.png}
-\end{figure}
-
-Podemos ver el segundo subobjetivo de 'Lograr saber cual es el PM idoneo'.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/objetivos-seleccion-mejor-pm-2.png}
-\end{figure}
-
-Podemos ver el segundo subobjetivo de 'Lograr selección de mejor PM'.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/objetivos-seleccion-mejor-pm-3.png}
-\end{figure}
-
-Podemos ver el tercer subobjetivo de 'Lograr selección de mejor PM'.
-
-\subsubsection{Selección mejores proveedores}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=9in, keepaspectratio, angle=90]{imagenes/objetivos-seleccion-mejor-proveedor-principal.png}
-\end{figure}
-
-Estos son los subobjetivos principales para elegir los mejores proveedores para el proyecto. El desglose de los 4 objetivos quedan en las figuras siguientes.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-seleccion-mejor-proveedor-1.png}
-\end{figure}
-
-Podemos ver el primer subobjetivo de 'Lograr conocer cuales son los mejores proveedores'.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-seleccion-mejor-proveedor-2.png}
-\end{figure}
-
-Segundo subobjetivo que contribuye a 'Lograr conocer cuales son los mejores proveedores'.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/objetivos-seleccion-mejor-proveedor-3.png}
-\end{figure}
-
-Primer subobjetivo que contribuye a 'Lograr conocer que proveedores están disponibles y cual es su presupuesto'.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=.5\textwidth]{imagenes/objetivos-seleccion-mejor-proveedor-4.png}
-\end{figure}
-
-Segundo subobjetivo que contribuye a 'Lograr conocer que proveedores están disponibles y cual es su presupuesto'.
-
-\subsubsection{Seguimiento del proyecto}
-
-\includegraphics[width=\textwidth]{imagenes/seguimiento1.png}
-
-En este gráfico se muestran los niveles mas altos de 'Seguimiento de proyecto'. Acá no se ven los refinamientos de 'Mantener estado de proyectos actualizados', que están en las siguientes figuras.
-
-\includegraphics[width=\textwidth]{imagenes/seguimiento2.png}
-
-En este desglose, se puede apreciar un O-refinamiento en el cual las dos opciones tienen objetivos en común pero uno agrega la opción de mantener al PM actualizando obligatoriamente el estado de proyecto cada poco tiempo. Estos objetivos a su vez los desglosamos en las siguientes figuras.
-
-\includegraphics[width=\textwidth]{imagenes/seguimiento3.png}
-
-Acá se puede ver el Y-refinamiento de la primer alternativa.
-
-\includegraphics[width=\textwidth]{imagenes/seguimiento4.png}
-
-Este es el detalle de la segunda alternativa, muy similar a la primera pero con menos funcionalidad.
-
-\newpage
-
-\subsubsection{Finalización del proyecto}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=9in, keepaspectratio, angle=90]{imagenes/objetivos-finalizacion-principal.png}
-\end{figure}
-
-Acá se pueden ver los objetivos de mas alto nivel para finalizar un proyecto. Podemos ver que hay un O-refinamiento donde se plantean dos alternativas: en una el proyecto se termina de forma 'normal' y en la otra, adicionalmente, se realizan encuestas para que el Cliente y el Gerente evalúen al PM y el PM evalúe a los proveedores que participaron en el proyecto. El detalle de ellas aparece en los próximos gráficos donde en cada figura podemos ver el detalle de cada subobjetivo con orden de aparición de izquierda a derecha.
-
-\includegraphics[width=\textwidth]{imagenes/objetivos-finalizacion1.png}
-
-Primer subobjetivo que contribuye a la primera alternativa de 'Finalizar proyecto'.
-
-\includegraphics[width=\textwidth]{imagenes/objetivos-finalizacion2.png}
-
-Segundo subobjetivo que contribuye a la primera alternativa de 'Finalizar proyecto'.
-
-\includegraphics[width=\textwidth]{imagenes/objetivos-finalizacion3.png}
-
-Primer subobjetivo que contribuye a la segunda alternativa de 'Finalizar proyecto'.
-
-\includegraphics[width=\textwidth]{imagenes/objetivos-finalizacion4.png}
-
-Segundo subobjetivo que contribuye a la segunda alternativa de 'Finalizar proyecto'.
-
-\includegraphics[width=\textwidth]{imagenes/objetivos-finalizacion5principal.png}
-
-Podemos ver el tercer subobjetivo que contribuye a la segunda alternativa de 'Finalizar proyecto'. A su vez, este esta dividido en tres subobjetivos que se detallan en las siguientes figuras:
-
-\includegraphics[width=\textwidth]{imagenes/objetivos-finalizacion51.png}
-
-Primer subobjetivo que contribuye a 'El proyecto se marca como finalizado entonces se realizan las encuestas'.
-
-\includegraphics[width=\textwidth]{imagenes/objetivos-finalizacion52.png}
-
-Segundo subobjetivo que contribuye a 'El proyecto se marca como finalizado entonces se realizan las encuestas'.
-
-\includegraphics[width=\textwidth]{imagenes/objetivos-finalizacion53.png}
-
-Tercer subobjetivo que contribuye a 'El proyecto se marca como finalizado entonces se realizan las encuestas'.
