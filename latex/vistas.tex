@@ -13,6 +13,8 @@ mostraremos los detalles de cada uno de estos.
     %\includegraphics[width=\textwidth]{imagenes/casos-de-uso2.png}
 \end{figure}
 
+\subsection{En las que actúa el cliente}
+
 \begin{table}[H]
   \begin{center}
   \resizebox{\textwidth}{!}{
@@ -143,6 +145,9 @@ mostraremos los detalles de cada uno de estos.
   \end{center}
 \end{table}
 
+
+\subsection{En las que actúa el proveedor}
+
 \begin{table}[H]
   \begin{center}
   \resizebox{\textwidth}{!}{
@@ -252,7 +257,7 @@ mostraremos los detalles de cada uno de estos.
 \end{table}
 
 
-
+\subsection{En las que actúa el gerente}
 
 \begin{table}[H]
   \begin{center}
@@ -431,13 +436,93 @@ mostraremos los detalles de cada uno de estos.
   \end{center}
 \end{table}
 
+\subsection{En las que actúa el PM}
 
 
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU20: Sistema pide actualizaciones del estado del proyecto} \\\hline
+    \multicolumn{2}{|l|}{Actor: PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Gerente valido el proyecto} \\\hline
+    \multicolumn{2}{|l|}{Post: El PM recibe el pedido de actualización del estado del proyecto, por parte del sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El sistema se actualiza y observa que tiene un proyecto como pendiente de actualización de estado & \\ \hline
+     2- El sistema pide al PM asignado al proyecto que actualice el estado del mismo. &\\ \hline
+     3- Fin CU20 & \\ \hline
+ \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU21: Carga propuesta de alcance del proyecto} \\\hline
+    \multicolumn{2}{|l|}{Actor: PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Gerente creó un proyecto y asignó al PM} \\\hline
+    \multicolumn{2}{|l|}{Post: La propuesta de alcance para el proyecto queda cargada en el sistema para que el Cliente la pueda ver} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El PM analiza la propuesta, arma el alcance y lo guarda en el sistema para que sea observable para el Cliente & \\ \hline
+     2- Fin CU21 & \\ \hline
+ \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
 
 
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU22: Selecciona proveedores y pide presupuesto} \\\hline
+    \multicolumn{2}{|l|}{Actor: PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Cliente aceptó el alcance} \\\hline
+    \multicolumn{2}{|l|}{Post: Proveedor queda asignado al proyecto} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El sistema notifica al PM que el Cliente aceptó el alcance & \\ \hline
+     2- El PM pide al sistema la lista de proveedores especificando el rubro & \\ \hline
+     3- El sistema muestra la lista de proveedores, filtrada por rubro y ordenada por ranking de proveedores & \\ \hline
+     4- El PM elige una cantidad de proveedores de la lista & \\ \hline
+     5- El sistema manda un mail a todos los proveedores seleccionados con la propuesta de alcance y pidiendo presupuesto & \\ \hline
+     6- Fin CU22 & \\ \hline
+ \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
 
 
-
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU23: Acepta o rechaza presupuesto y lo carga en el sistema} \\\hline
+    \multicolumn{2}{|l|}{Actor: PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Proveedor propuso presupuesto} \\\hline
+    \multicolumn{2}{|l|}{Post: El PM acepta el presupuesto del proveedor y lo carga en el sistema, o lo rechaza y no lo carga} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El sistema notifica al PM que el Proveedor propuso un presupuesto & \\ \hline
+     2- El PM analiza el presupuesto enviado, lo acepta y lo carga en el sistema & 2.1- \\ \hline
+     3- El sistema guarda el presupuesto aceptado & \\ \hline
+     4- Fin CU23 & \\ \hline
+ \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
 
 
 
