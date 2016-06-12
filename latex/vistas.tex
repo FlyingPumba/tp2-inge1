@@ -13,7 +13,7 @@ mostraremos los detalles de cada uno de estos.
     %\includegraphics[width=\textwidth]{imagenes/casos-de-uso2.png}
 \end{figure}
 
-\subsection{En las que actúa el cliente}
+\subsection{En las que actúa el Cliente}
 
 \begin{table}[H]
   \begin{center}
@@ -70,7 +70,7 @@ mostraremos los detalles de cada uno de estos.
     \multicolumn{2}{|l|}{Post: El sistema guarda la aceptación del cliente} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El cliente recibe el presupuesto & \\ \hline
-     2- El cliente acepta la propuesta & 2.1- El cliente rechaza el presupuesto. Ir a CU(gerente envía presupuesto)\\ \hline
+     2- El cliente acepta la propuesta & 2.1- El cliente rechaza el presupuesto. Ir a CU19\\ \hline
      3- El sistema guarda la aceptación del cliente &\\ \hline
      4- Fin CU3 & \\ \hline
   \end{tabular}
@@ -91,7 +91,7 @@ mostraremos los detalles de cada uno de estos.
     \multicolumn{2}{|l|}{Post: El sistema guarda la aceptación del cliente} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El cliente recibe el alcance & \\ \hline
-     2- El cliente acepta el alcance & 2.1- El cliente rechaza el presupuesto. Ir a CU(gerente envía alcance)\\ \hline
+     2- El cliente acepta el alcance & 2.1- El cliente rechaza el presupuesto. Ir a CU19\\ \hline
      3- El sistema guarda la aceptación del cliente  &\\ \hline
      4- Fin CU4 & \\ \hline
   \end{tabular}
@@ -146,7 +146,7 @@ mostraremos los detalles de cada uno de estos.
 \end{table}
 
 
-\subsection{En las que actúa el proveedor}
+\subsection{En las que actúa el Proveedor}
 
 \begin{table}[H]
   \begin{center}
@@ -257,7 +257,7 @@ mostraremos los detalles de cada uno de estos.
 \end{table}
 
 
-\subsection{En las que actúa el gerente}
+\subsection{En las que actúa el Gerente}
 
 \begin{table}[H]
   \begin{center}
@@ -266,7 +266,7 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU12: Agregar PM al sistema} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: True} \\\hline
+    \multicolumn{2}{|l|}{Pre: El gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El PM es agregado al sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El gerente solicita al sistema ingresar un nuevo PM & \\ \hline
@@ -290,7 +290,7 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU13: Elige template para contrato} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: Cliente acepto presupuesto} \\\hline
+    \multicolumn{2}{|l|}{Pre: Cliente acepto presupuesto o PM re-asigno proveedor y el gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: Se eligio un template} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El gerente solicita al sistema templates para el contrato & \\ \hline
@@ -312,7 +312,7 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU14: Re-asignar PM} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: PM asignado a proyecto} \\\hline
+    \multicolumn{2}{|l|}{Pre: Hay PM asignado a proyecto y el gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: Se modifico el PM asignado al proyecto} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El gerente solicita al sistema reasignar un PM & \\ \hline
@@ -321,7 +321,8 @@ mostraremos los detalles de cada uno de estos.
      4- El sistema muestra informacion del proyecto, al PM asignado y la lista de PM's (sin el asignado actualmente), \\ le pide al gerente seleccionar un nuevo PM & \\ \hline
      5- El gerente selecciona un PM & \\ \hline
 	 6- El sistema informa que se reasigno correctamente & \\ \hline
-     7- Fin CU14 & \\ \hline
+   7- Ir a CU20 & \\ \hline
+     8- Fin CU14 & \\ \hline
   \end{tabular}
 }
 %\caption{Tabla casos de uso}
@@ -337,7 +338,7 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU15: Crear proyecto y asignar PM} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: Cliente envio una propuesta} \\\hline
+    \multicolumn{2}{|l|}{Pre: El gerente está autenticado y Cliente envio una propuesta} \\\hline
     \multicolumn{2}{|l|}{Post: Se creo un nuevo proyecto en el sistema con un PM asignado} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El sistema informa al gerente de la nueva propuesta y le pide crear un proyecto & \\ \hline
@@ -360,7 +361,7 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU16: Evalúa PM al finalizar el proyecto} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: Finalizo el proyecto} \\\hline
+    \multicolumn{2}{|l|}{Pre: El gerente está autenticado y Finalizo el proyecto} \\\hline
     \multicolumn{2}{|l|}{Post: El gerente evalúo al PM} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El sistema avisa al gerente que termino el proyecto & \\ \hline
@@ -381,7 +382,7 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU17: Agregar Empleado al sistema} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: true} \\\hline
+    \multicolumn{2}{|l|}{Pre: El gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El empleado queda registrado en el sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El gerente solicita al sistema que agregue un nuevo empleado & \\ \hline
@@ -403,10 +404,10 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU18: Valida proyecto} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: El Cliente acepto presupuesto o PM redefinio alcance por proveedor cancelado} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Cliente acepto presupuesto o PM redefinio alcance por proveedor cancelado y el gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El proyecto queda validado en el sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
-	 1- El sistema avisa a gerente que el Cliente acepto el presupuesto & \\ \hline
+	 1- El sistema avisa a gerente que el Cliente aceptó el presupuesto & \\ \hline
 	 2- El gerente revisa el proyecto y lo valida & \\ \hline
    3- Fin CU18 & \\ \hline
   \end{tabular}
@@ -423,12 +424,32 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU19: Envía presupuesto para el Cliente} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: El PM aceptó presupuesto de proveedor y lo cargo en el sistema} \\\hline
+    \multicolumn{2}{|l|}{Pre: El PM aceptó presupuesto de proveedor y lo cargo en el sistema y el gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El Cliente tiene el presupuesto del gerente para aceptar o rechazar} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El sistema avisa a gerente que el PM acepto presupuesto del proveedor & \\ \hline
 	 2- El gerente arma el presupuesto total del proyecto, usando este dato, y lo envía al Cliente & \\ \hline
    3- Fin CU19 & \\ \hline
+ \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU20: Evalúa a PM apartado de proyecto} \\\hline
+    \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
+    \multicolumn{2}{|l|}{Pre: True} \\\hline
+    \multicolumn{2}{|l|}{Post: El PM queda evaluado negativamente y el gerente está autenticado} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+  	 1- El Gerente evalúa al PM & \\ \hline
+  	 2- El sistema guarda la evaluación &\\ \hline
+     3- Fin CU20 & \\ \hline
  \end{tabular}
 }
 %\caption{Tabla casos de uso}
@@ -444,14 +465,14 @@ mostraremos los detalles de cada uno de estos.
   \resizebox{\textwidth}{!}{
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU20: Sistema pide actualizaciones del estado del proyecto} \\\hline
+    \multicolumn{2}{|l|}{CU21: Sistema pide actualizaciones del estado del proyecto} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
-    \multicolumn{2}{|l|}{Pre: El Gerente valido el proyecto} \\\hline
+    \multicolumn{2}{|l|}{Pre: El gerente valido el proyecto} \\\hline
     \multicolumn{2}{|l|}{Post: El PM recibe el pedido de actualización del estado del proyecto, por parte del sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El sistema se actualiza y observa que tiene un proyecto como pendiente de actualización de estado & \\ \hline
      2- El sistema pide al PM asignado al proyecto que actualice el estado del mismo. &\\ \hline
-     3- Fin CU20 & \\ \hline
+     3- Fin CU21 & \\ \hline
  \end{tabular}
 }
 %\caption{Tabla casos de uso}
@@ -464,13 +485,13 @@ mostraremos los detalles de cada uno de estos.
   \resizebox{\textwidth}{!}{
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU21: Carga propuesta de alcance del proyecto} \\\hline
+    \multicolumn{2}{|l|}{CU22: Carga propuesta de alcance del proyecto} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
-    \multicolumn{2}{|l|}{Pre: El Gerente creó un proyecto y asignó al PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Gerente creó un proyecto y asignó al PM y el PM está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: La propuesta de alcance para el proyecto queda cargada en el sistema para que el Cliente la pueda ver} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El PM analiza la propuesta, arma el alcance y lo guarda en el sistema para que sea observable para el Cliente & \\ \hline
-     2- Fin CU21 & \\ \hline
+     2- Fin CU22 & \\ \hline
  \end{tabular}
 }
 %\caption{Tabla casos de uso}
@@ -484,9 +505,9 @@ mostraremos los detalles de cada uno de estos.
   \resizebox{\textwidth}{!}{
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU22: Selecciona proveedores y pide presupuesto} \\\hline
+    \multicolumn{2}{|l|}{CU23: Selecciona proveedores y pide presupuesto} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
-    \multicolumn{2}{|l|}{Pre: El Cliente aceptó el alcance} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Cliente aceptó el alcance y el PM está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: Proveedor queda asignado al proyecto} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El sistema notifica al PM que el Cliente aceptó el alcance & \\ \hline
@@ -494,7 +515,7 @@ mostraremos los detalles de cada uno de estos.
      3- El sistema muestra la lista de proveedores, filtrada por rubro y ordenada por ranking de proveedores & \\ \hline
      4- El PM elige una cantidad de proveedores de la lista & \\ \hline
      5- El sistema manda un mail a todos los proveedores seleccionados con la propuesta de alcance y pidiendo presupuesto & \\ \hline
-     6- Fin CU22 & \\ \hline
+     6- Fin CU23 & \\ \hline
  \end{tabular}
 }
 %\caption{Tabla casos de uso}
@@ -508,15 +529,55 @@ mostraremos los detalles de cada uno de estos.
   \resizebox{\textwidth}{!}{
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU23: Acepta o rechaza presupuesto y lo carga en el sistema} \\\hline
+    \multicolumn{2}{|l|}{CU24: Acepta o rechaza presupuesto y lo carga en el sistema} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
-    \multicolumn{2}{|l|}{Pre: El Proveedor propuso presupuesto} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Proveedor propuso presupuesto y el PM está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El PM acepta el presupuesto del proveedor y lo carga en el sistema, o lo rechaza y no lo carga} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El sistema notifica al PM que el Proveedor propuso un presupuesto & \\ \hline
      2- El PM analiza el presupuesto enviado, lo acepta y lo carga en el sistema & 2.1- \\ \hline
      3- El sistema guarda el presupuesto aceptado & \\ \hline
-     4- Fin CU23 & \\ \hline
+     4- Fin CU24 & \\ \hline
+ \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU25: Evalúa al proveedor que cancelo} \\\hline
+    \multicolumn{2}{|l|}{Actor: PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: El gerente valido el proyecto y el PM está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor que cancelo queda evaluado negativamente en el sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El PM evalúa al proveedor negativamente & \\ \hline
+  	 2- El sistema guarda la evaluación & \\ \hline
+     3- Fin CU25 & \\ \hline
+ \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU26: Notifica a gerente que proveedor cancelo} \\\hline
+    \multicolumn{2}{|l|}{Actor: PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: El PM está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El gerente es avisado que el proveedor cancelo} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El PM carga un aviso de que el proveedor cancelo & \\ \hline
+  	 2- El sistema guarda el aviso para que el gerente lo pueda ver & \\ \hline
+     3- Fin CU26 & \\ \hline
  \end{tabular}
 }
 %\caption{Tabla casos de uso}
@@ -525,5 +586,44 @@ mostraremos los detalles de cada uno de estos.
 \end{table}
 
 
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU27: Re-define el alcance} \\\hline
+    \multicolumn{2}{|l|}{Actor: PM} \\\hline
+    \multicolumn{2}{|l|}{Pre:  El PM está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El alcance nuevo queda guardado en el sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El PM analiza el alcance previo del proyecto y lo cambia & \\ \hline
+  	 2- El sistema guarda el nuevo alcance para el proyecto & \\ \hline
+     3- Fin CU27 & \\ \hline
+ \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU28: Evalúa al proveedor al finalizar el proyecto} \\\hline
+    \multicolumn{2}{|l|}{Actor: PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: Finalizo el proyecto y el PM está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El PM evalúo al proveedor} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+	 1- El PM evalúa al proveedor & \\ \hline
+	 2- El sistema guarda la evaluación & \\ \hline
+   3- Fin CU28 & \\ \hline
+  \end{tabular}
+}
+%\caption{Tabla casos de uso}
+%\label{tabla:casos de uso}
+  \end{center}
+\end{table}
 
 \newpage
