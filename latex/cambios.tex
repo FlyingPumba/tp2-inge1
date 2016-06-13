@@ -1,8 +1,12 @@
 Cambios con respecto al TP1
 
-En base al feedback obtenido de la empresa \textit{DC Construcciones}, y un analís detenido de los requerimientos, llegamos a la conclusión de que era necesario realizar los siguientes cambios a los objetivos planteados en la primera etapa:
+En base al feedback obtenido de la empresa \textit{DC Construcciones}, y un análisis detenido de los requerimientos, llegamos a la conclusión de que era necesario realizar los siguientes cambios a los objetivos planteados en la primera etapa:
 
 \begin{itemize}
-  \item Para el caso en el que un proveedor cancela durante la realización de un proyecto, se había tomado la asunción de que el proveedor cancela a través del sistema, pero esto va en contra de las prácticas comerciales de sentido comun. Por esta razón, ahora asumimos que el proveedor cancela hablandole en persona al PM, quien después refleja esto en el Sistema.
-  \item Una vez que el PM informa que canceló un proveedor en el Sistema, este envía una notificicación al Gerente. Dado que puede haber alguna parte del proyecto ya realizada, el PM redefine el alcance antes de elegir un nuevo proveedor, y luego evalua negativamente en el Sistema al proveedor que canceló.
+  \item Para el caso en el que un proveedor cancela durante la realización de un proyecto, se había tomado la asunción de que el proveedor cancela a través del sistema, pero esto va en contra de las prácticas comerciales de sentido común. Por esta razón, ahora asumimos que el proveedor cancela hablandole en persona al PM, quien después refleja esto en el Sistema.
+  \item Una vez que el PM informa que canceló un proveedor en el Sistema, este envía una notificicación al Gerente. Dado que puede haber alguna parte del proyecto ya realizada, el PM redefine el alcance antes de elegir un nuevo proveedor, y luego evalúa negativamente en el Sistema al proveedor que canceló.
+  \item El gerente debe validar nuevamente el proyecto ante el cambio de proveedor y redefinición del alcance.
+  \item El Cliente puede comunicar un malestar con el PM, en cuyo caso el PM será apartado del proyecto (esto se realiza en forma personal). Esto solo ocurre en este caso, el PM ya no puede apartarce por voluntad propia.
+  \item El sistema notifica al Cliente del cambio de PM.
+  \item Cuando el PM es apartado de un proyecto se lo evalúa negativamente.
 \end{itemize}
