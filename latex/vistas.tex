@@ -444,7 +444,7 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU20: Evalúa a PM apartado de proyecto} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: True} \\\hline
+    \multicolumn{2}{|l|}{Pre: El gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El PM queda evaluado negativamente y el gerente está autenticado} \\\hline
      Curso normal & Curso alternativo\\ \hline
   	 1- El Gerente evalúa al PM & \\ \hline
@@ -467,7 +467,7 @@ mostraremos los detalles de cada uno de estos.
     \hline
     \multicolumn{2}{|l|}{CU21: Sistema pide actualizaciones del estado del proyecto} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
-    \multicolumn{2}{|l|}{Pre: El gerente valido el proyecto} \\\hline
+    \multicolumn{2}{|l|}{Pre: El gerente está autenticado y valido el proyecto} \\\hline
     \multicolumn{2}{|l|}{Post: El PM recibe el pedido de actualización del estado del proyecto, por parte del sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El sistema se actualiza y observa que tiene un proyecto como pendiente de actualización de estado & \\ \hline
@@ -743,7 +743,7 @@ mostraremos los detalles de cada uno de estos.
      Curso normal & Curso alternativo\\ \hline
      1- El User pide al sistema que le permita autenticarse & \\ \hline
      2- El sistema confirma y pide al User que ingrese su nombre y contraseña & \\ \hline
-     3- El User ingresa su nombre y contraseña & 3.1- El User ingresa un nombre o contraseña incorrecta. Ir a Fin CU34 \\ \hline
+     3- El User ingresa su nombre y contraseña & 3.1- El User ingresa un nombre o contraseña incorrecta, o el User no está registrado en el sistema. Ir a Fin CU34 \\ \hline
      4- El sistema el sistema confirma y autentica al User & \\ \hline
      5- Fin CU34 & \\ \hline
   \end{tabular}
