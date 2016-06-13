@@ -1,24 +1,38 @@
 En el anterior informe se especifico una lista de requerimientos y se establecieron objetivos, con los cuales,
 se llevaría acabo el sistema pedido por la empresa \textit{DC Construcciones}. A partir de esto,
 elegiremos cuales de las alternativas propuestas en el modelo de objetivos utilizaremos para la
-contrucción de este sistema. Una vez completada la elección, se realizaran una serie de documentos
+construcción de este sistema. Una vez completada la elección, se realizaran una serie de documentos
 en base a distintas técnicas de especificación, entre las cuales contaran: modelo de casos de uso,
 modelo conceptual ampliados con OCL, máquinas de estados finitos (o LTSs/FSMs), y/o diagramas
-de actividad. Según consideremos conveniente elegiremos una o otra para represandar determinados
+de actividad. Según consideremos conveniente elegiremos una o otra para representar determinados
 detalles de nuestro problema.
 
 A continuación redactaremos las elecciones que tomamos a partir del modelo de objetivos:
 
 \begin{itemize}
-
+\item En el o-refinamiento de la Orden de PM según ranking y cantidad de proyectos actualesla opción Mostrar proveedores de forma inteligente, esto básicamente es la alternativa planteada
+en la etapa anterior que permitía al sistema mostrar a los proveedores ordenados por un ranking. El mismo se construye por las encuestas realizadas al final
+del proyecto.
+\item En el o-refinamiento de Orden de PM según ranking y cantidad de proyectos actuales elegimos PMs ordenados por ranking. Le decisión es similar a la anterior,
+utilizamos esto para mostrar los PMs ordenado por ranking generado a partir de las encuestas de fin de proyecto.
+\item En el o-refinamiento del seguimiento del proyecto Estado de proyectos actualizados elegimos la opción PM asignado al proyecto
+actualiza el estado periódicamente en el sistema.
+\item En el o-refinamiento de la finalización del proyecto elegimos la rama que incluye El proyecto se marca como finalizado => se realizan
+las encuestas. Esta elección es necesaria para los dos primeros o-refinamientos se puedan tomar.
 \end{itemize}
 
-Seleccionadas las alternativas, pasaremos establecer con que modelos representaremos cada detalle
- de nuestro problema.
+Seleccionadas las alternativas, pasaremos establecer con que modelos representaremos cada detalle de nuestro problema.
 
  \begin{itemize}
   \item Casos de uso: usaremos esta técnica para representar las interacciones que ocurren entre los distintos
   actores que conforman la empresa(gerente, PM, proveedor, cliente, data entry) y el sistema. Completaremos
   el diagrama con los detalles de los casos de uso, donde presentaremos la serie de pasos que representan una
-  determinada interección con nuestro sistema.
+  determinada interacción con nuestro sistema.
+  \item Máquinas de estado: las utilizamos para mostrar como funcionan las actualizaciones de estado que realiza el PM para un proyecto
+  durante la etapa de seguimiento (con y sin data entry). Además, mostramos como son las interacciones a través del sistema durante las negociaciones
+  del alcance (PM con Cliente) y del presupuesto (Gerente con Cliente).
+  \item Diagrama de Actividad:
  \end{itemize}
+
+En las siguiente secciones de este informe detallaremos cada una de estas especificaciones y, además, formularemos cambios respecto a la etapa anterior del
+proyecto. 
