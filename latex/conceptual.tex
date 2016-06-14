@@ -8,7 +8,7 @@ El caso de los Contadores decidimos modelarlo relacionándolo al Gerente y no al
 
 El caso en que un nuevo PM es asignado para un proyecto, se marca la Comisión del viejo PM como cancelada (mediante una propiedad de estado) y se agrega una Comisión a otro PM. En cambio, cuando hay un cambio de Proveedor, el Contrato de ese Proveedor es el que se marca como cancelado (también mediante una propiedad de estado).
 
-Ahora bien, los contratos de los Proveedores pueden ser cancelados pero no lo de los Clientes, ya que consideramos que todo Proyecto se termina llevando a cabo. 
+Consideramos que tanto los contratos de los Proveedores pueden ser cancelados como los de los Clientes. En el primer caso porque un Proveedor puede ser removido de la obra y cambiado por otros. En el segundo porque al renegociar con nuevos Proveedores (cuando estos cambian), también hay que firmar un nuevo contrato con el cliente.
 
 Notar que los Data Entries no los modelamos pues no eran relevantes para el Proyecto en sí.
 
@@ -23,6 +23,7 @@ Las notificaciones, como esto afecta al sistema y qué eventos las causan se pue
 Los Data Entries también son modelados en los demás Diagramas. 
 
 La cronología en general de todos los eventos del proyecto se explica mejor en el Diagrama de Actividad.
+
 Los pagos y cobranzas del Contador a cada parte (Cliente, PM, Gerente, Proveedores) se especifica en el Diagrama de Actividad.
 
 \subsection{Observaciones de las Vistas}
@@ -45,3 +46,72 @@ Como se puede ver, hay tres vistas para el Diagrama de Clases, pero estas tres v
 \newpage
 \subsection{OCL}
 Nuestro modelo tendrá las siguientes restricciones:
+
+\begin{listocl}
+
+\begin{itemocl}{Los rankings de Proveedor están bien formados (tienen del número 1 a cantidad(Proveedores)).}
+Context: Proveedor
+Inv: Proveedor.allInstances()->isUnique(posicionProv.numero) and Proveedor.allInstances()->exists(p | p.posicionProv.numero = 1) and Proveedor.allInstances()->exists(p | p.posicionProv.numero = Proveedor.allInstances()->size())
+\end{itemocl}
+
+\begin{itemocl}{Los rankings de PMs están bien formados (tienen del número 1 a cantidad(PMs)).}
+Context: PM
+Inv: PM.allInstances()->isUnique(posicionPM.numero) and PM.allInstances()->exists(p | p.posicionPM.numero = 1) and PM.allInstances()->exists(p | p.posicionPM.numero = PM.allInstances()->size())
+\end{itemocl}
+
+\begin{itemocl}{Cada proveedor tiene un seguro de caución que vence después de la finalización de cada proyecto al que le mandó un presupuesto.}
+Context: Proveedor
+Inv: self.presupuestos->collect(presupuestoProvDe)->forAll(proy | self.seguros->exists(seg | seg.fechaVencimiento >= proy.fechaFin))
+\end{itemocl}
+
+\begin{itemocl}{Los contratos de Proveedores están asociados a un gerente que supervisa el proyecto del contrato.}
+Context: ContratoProveedor
+Inv: self.gerenteInvolucrado.supervisa->includes(self.presupuesto.presupuestoProvDe)
+\end{itemocl}
+
+\begin{itemocl}{Los contratos de Clientes están asociados a un gerente que supervisa el proyecto del contrato.}
+Context: ContratoCliente
+Inv: self.gerenteInvolucrado.supervisa->includes(self.presupuesto.presupuestoClienteDe)
+\end{itemocl}
+
+\begin{itemocl}{Cada proveedor manda como máximo un presupuesto por proyecto.}
+Context: Proveedor
+Inv: self.presupuestos->isUnique(presupuestoProvDe)
+\end{itemocl}
+
+\begin{itemocl}{Hay como máximo un presupuesto del cliente con contrato firmado (y no cancelado) para cada proyecto.}
+Context: Proyecto
+Inv: self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() <= 1
+\end{itemocl}
+
+\begin{itemocl}{Si el proyecto no empezo, no hay contrato de clientes firmados, si empezo hay exactamente un contrato de cliente firmado y al menos un contrato de Proveedor firmado.}
+Context: Proyecto
+Inv: self.estado = noEmpezo implies self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() = 0 and self.estado <> noEmpezo implies (self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() = 1 and self.presupuestosProv->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() > 0)
+\end{itemocl}
+
+\begin{itemocl}{La suma de los presupuestos de los Proveedores que firmaron un contrato es menor al presupuesto que se le manda al cliente.}
+Context: Proyecto
+Inv: self.presupuestosCliente->select(presCliente | presCliente.contrato->notEmpty() and presCliente.contrato.estado = firmado)->forall(presCliente | presCliente.monto < self.presupuestosProv->select(presProv | presProv.contrato->notEmpty() and presProv.contrato.estado = firmado)->collect(monto)->sum())
+\end{itemocl}
+
+\begin{itemocl}{El cliente de un proyecto coincide con el cliente asociado a cada presupuesto del proyecto.}
+Context: Proyecto
+Inv: self.presupuestosCliente->forAll(pres | pres.cliente = self.cliente)
+\end{itemocl}
+
+\begin{itemocl}{Hay como máximo un PM actual por proyecto (puede ser momentaneamente ninguno cuando se cambia de PM).}
+Context: Proyecto
+Inv: self.comisionesProyecto->select(c | c.estado = actual) <= 1
+\end{itemocl}
+
+\begin{itemocl}{Cada comisión de un PM es para un proyecto distinto.}
+Context: PM
+Inv: self.comisionesPM->isUnique(proyecto)
+\end{itemocl}
+
+\begin{itemocl}{Todas las actualizaciones de Proyecto pertenecen a un PM que es o fue el PM asignado del proyecto de la actualización.}
+Context: PM
+Inv: self.actualizaciones->forAll(a | self.comisionesPM->exists(c | c.proyecto = a.actualizacionDe))
+\end{itemocl}
+
+\end{listocl}
