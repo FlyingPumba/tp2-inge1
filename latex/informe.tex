@@ -83,6 +83,22 @@
 \newcommand{\subscript}[2]{$#1 _ #2$}
 
 
+\newenvironment{listocl}{\begin{enumerate}}{\end{enumerate}}
+
+\lstnewenvironment{itemocl}[1]{
+  \renewcommand\lstlistingname{lstListing}
+  \lstset{language=[Visual]Basic, %
+  keywordstyle=\bfseries\color{ForestGreen},commentstyle=\color{grey},stringstyle=\color{magenta},%
+  basicstyle=\ttfamily\small, % frame=lines,
+  showspaces=false, showstringspaces=false,%
+  aboveskip=10pt, belowskip=10pt, %tabsize=4,
+  lineskip=2pt, %numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt,%
+  numberblanklines=false, %
+  morekeywords={Context, Inv, endif, forAll, select, exists, =, ==, asSet, sortedBy, in, notIn, self, GLOBAL_VARIABLE}
+  }
+  \item #1}{}
+
+
 % ******************************************************** %
 \begin{document}
 \thispagestyle{empty}
@@ -118,14 +134,13 @@
 \section{Detalle Casos de Uso}
 \input{vistas}
 
-%\newpage
-%\section{Escenarios representativos de uso del sistema}
-%\input{escenarios}
+\newpage
+\section{Diagrama de Actividad}
+% \input{actividad}
 
-
-%\newpage
-%\section{Discusión}
-%\input{discusion}
+\newpage
+\section{Maquinas de Estado Finito}
+\input{fsm}
 
 \newpage
 \section{Modelo Conceptual}
