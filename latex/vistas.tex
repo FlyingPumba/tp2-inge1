@@ -273,7 +273,7 @@ mostraremos los detalles de cada uno de estos.
      2- El sistema confirma y pide al gerente que ingrese los datos & \\ \hline
      3- El gerente ingresa los datos correspondientes al sistema & \\ \hline
      4- El sistema valida que los datos sean correctos & \\ \hline
-     5- El sistema informa que se ingreso el PM al sistema correctamente & 5.1-El sistema informa que la informacion es incorrecta \\ & o que los datos corresponden a un PM existente  \\ & 5.2- Ir a 1 \\ \hline
+     5- El sistema informa que se ingreso el PM al sistema correctamente & 5.1-El sistema informa que la informacion es incorrecta \\ & o que los datos corresponden a un PM existente  \\ & 5.2- Ir a 2 \\ \hline
      6- Fin CU12 & \\ \hline
   \end{tabular}
 }
@@ -637,7 +637,7 @@ mostraremos los detalles de cada uno de estos.
     \multicolumn{2}{|l|}{Post: El proyecto queda como finalizado en el sistema y comienza el proceso de evaluaciones} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El PM marca proyecto como finalizado en el sistema & \\ \hline
-	 2- El sistema guarda esto, avisa a gerente que puede evaluar a PM y Ir a CU5 & \\ \hline
+	 2- El sistema guarda esto, avisa a gerente que puede evaluar a PM. USA CU5, USA CU16, USA CU28 & \\ \hline
    3- Fin CU29 & \\ \hline
   \end{tabular}
 }
@@ -672,7 +672,8 @@ mostraremos los detalles de cada uno de estos.
   \resizebox{\textwidth}{!}{
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU31: Carga actualizaciones de progreso del proyecto } \\\hline
+    \multicolumn{2}{|l|}{CU31: Carga actualizaciones de progreso del proyecto
+} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
     \multicolumn{2}{|l|}{Pre: El PM está autenticado y esta asignado a un proyecto} \\\hline
     \multicolumn{2}{|l|}{Post: Queda cargada en el sistema una actualización del estado del proyecto para que el gerente la vea} \\\hline
@@ -692,7 +693,8 @@ mostraremos los detalles de cada uno de estos.
   \resizebox{\textwidth}{!}{
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU32: Carga problemas en el proyecto } \\\hline
+    \multicolumn{2}{|l|}{CU32: Carga problemas en el proyecto
+} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
     \multicolumn{2}{|l|}{Pre: El PM está autenticado y esta asignado a un proyecto} \\\hline
     \multicolumn{2}{|l|}{Post: Queda cargado en el sistema un aviso de que el proyecto tiene problemas y detalla cuales para que el gerente la vea} \\\hline
@@ -712,7 +714,8 @@ mostraremos los detalles de cada uno de estos.
   \resizebox{\textwidth}{!}{
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU33: Reasigna proveedores } \\\hline
+    \multicolumn{2}{|l|}{CU33: Reasigna proveedores
+} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
     \multicolumn{2}{|l|}{Pre: El PM está autenticado y el PM redefinio el alcance} \\\hline
     \multicolumn{2}{|l|}{Post: Se cambia el proveedor asignado al proyecto por otro} \\\hline
@@ -743,7 +746,7 @@ mostraremos los detalles de cada uno de estos.
      Curso normal & Curso alternativo\\ \hline
      1- El User pide al sistema que le permita autenticarse & \\ \hline
      2- El sistema confirma y pide al User que ingrese su nombre y contraseña & \\ \hline
-     3- El User ingresa su nombre y contraseña & 3.1- El User ingresa un nombre o contraseña incorrecta, o el User no está registrado en el sistema. Ir a Fin CU34 \\ \hline
+     3- El User ingresa su nombre y contraseña & 3.1- El User ingresa un nombre o contraseña incorrecta, \\ & o el User no está registrado en el sistema. Ir a Fin CU34 \\ \hline
      4- El sistema el sistema confirma y autentica al User & \\ \hline
      5- Fin CU34 & \\ \hline
   \end{tabular}
@@ -753,7 +756,186 @@ mostraremos los detalles de cada uno de estos.
   \end{center}
 \end{table}
 
-\subsection{En las que actúa el Empleado}
+\subsection{En las que actúa el Data Entry}
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU35: Agregar PM al sistema} \\\hline
+    \multicolumn{2}{|l|}{Actor: Data Entry} \\\hline
+    \multicolumn{2}{|l|}{Pre: El data entry está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El PM es agregado al sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+	 1- El data entry solicita al sistema ingresar un nuevo PM & \\ \hline
+     2- El sistema confirma y pide al data entry que ingrese los datos & \\ \hline
+     3- El data entry ingresa los datos correspondientes al sistema & \\ \hline
+     4- El sistema valida que los datos sean correctos & \\ \hline
+     5- El sistema informa que se ingreso el PM al sistema correctamente & 5.1-El sistema informa que la informacion es incorrecta \\ & o que los datos corresponden a un PM existente  \\ & 5.2- Ir a 2 \\ \hline
+     6- Fin CU35 & \\ \hline
+  \end{tabular}
+}
+  \end{center}
+\end{table}
 
 
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU36: Agregar proveedores al sistema} \\\hline
+    \multicolumn{2}{|l|}{Actor: Data Entry} \\\hline
+    \multicolumn{2}{|l|}{Pre: El data entry está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor es agregado al sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+	 1- El data entry solicita al sistema ingresar un nuevo proveedor & \\ \hline
+     2- El sistema confirma y pide al data entry que ingrese los datos & \\ \hline
+     3- El data entry ingresa los datos correspondientes al sistema & \\ \hline
+     4- El sistema valida que los datos sean correctos & \\ \hline
+     5- El sistema informa que se ingreso al proveedor al sistema correctamente & 5.1-El sistema informa que la informacion es incorrecta \\ & o que los datos corresponden a un proveedor existente  \\ & 5.2- Ir a 2 \\ \hline
+     6- Fin CU36 & \\ \hline
+  \end{tabular}
+}
+  \end{center}
+\end{table}
+
+
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU37: Actualizar datos de proveedores} \\\hline
+    \multicolumn{2}{|l|}{Actor: Data Entry} \\\hline
+    \multicolumn{2}{|l|}{Pre: El data entry está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: La informacion de los proveedores se actualiza en el sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+	 1- El data entry solicita al sistema actualizar los datos de proveedores & \\ \hline
+     2- El sistema confirma y muestra el listado de los proveedores pidiendole al data entry \\ que seleccione los que quiera modificar & \\ \hline
+     3- El data entry selecciona uno o mas proveedores & \\ \hline
+     4- El sistema muestra los datos actuales de un proveedor seleccionado & \\ \hline
+     5- El data entry modifica los datos del proveedor & \\ \hline
+     6- El sistema guarda los nuevos datos del proveedor & \\ \hline
+     7- Si quedan proveedores por modificar Ir a 4 sino Fin CU37 & \\ \hline
+  \end{tabular}
+}
+  \end{center}
+\end{table}
+
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU38: Crear proyecto y asignar PM} \\\hline
+    \multicolumn{2}{|l|}{Actor: Data Entry} \\\hline
+    \multicolumn{2}{|l|}{Pre: El data entry está autenticado y el cliente envío una propuesta} \\\hline
+    \multicolumn{2}{|l|}{Post: Se creo un nuevo proyecto en el sistema con un PM asignado} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+	 1- El data entry solicita al sistema crear un nuevo proyecto & \\ \hline
+     2- El sistema confirma y pide al data entry que ingrese los datos & \\ \hline	 
+	 3- El data entry crea un nuevo proyecto con los detalles de la propuesta & \\ \hline
+	 4- El sistema muestra la lista de PM's y le pide al data entry elegir uno & \\ \hline
+     5- El data entry selecciona un PM & \\ \hline
+	 6- El sistema informa que se creo el proyecto con el PM asignado exitosamente & \\ \hline
+     7- Fin CU38 & \\ \hline
+  \end{tabular}
+}
+  \end{center}
+\end{table}
+
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU39: Re-asignar PM} \\\hline
+    \multicolumn{2}{|l|}{Actor: Data Entry} \\\hline
+    \multicolumn{2}{|l|}{Pre: Hay PM asignado a proyecto y el Data Entry está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: Se modifico el PM asignado al proyecto} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+	 1- El data entry solicita al sistema reasignar un PM & \\ \hline
+	 2- El sistema confirma, muestra una lista de los proyectos en curso \\ y le pide seleccionar el proyecto en el cual quiere reasignar al PM & \\ \hline
+	 3- El data entry selecciona un proyecto & \\ \hline
+     4- El sistema muestra informacion del proyecto, al PM asignado y la lista de PM's (sin el asignado actualmente), \\ le pide al data entry seleccionar un nuevo PM & \\ \hline
+     5- El data entry selecciona un PM & \\ \hline
+	 6- El sistema informa que se reasigno correctamente & \\ \hline
+     7- Ir a CU20 & \\ \hline
+     8- Fin CU39 & \\ \hline
+  \end{tabular}
+}
+  \end{center}
+\end{table}
+
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU40: Carga evaluaciones} \\\hline
+    \multicolumn{2}{|l|}{Actor: Data Entry} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Data Entry está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: Se cargaron las evaluaciones en el sistema} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+	 1- El data entry solicita al sistema cargar evaluaciones & \\ \hline
+	 2- El sistema confirma, y le pide al data entry que elija entre PM y proveedor & \\ \hline
+	 3- El data entry selecciona uno de los actores & \\ \hline
+     4- El sistema muestra la encuesta del actor seleccionado y pide al data entry completarla & \\ \hline
+     5- El data entry completa la encuesta y pide al sistema que la guarde & \\ \hline
+	 6- El sistema guarda la evaluacion y notifica que se guardo correctamente& \\ \hline
+     7- El sistema le pregunta al data entry si desea cargar mas evaluaciones & \\ \hline
+	 8- Si el data entry quiere completar mas evaluaciones Ir a 2 sino Fin CU40 & \\ \hline
+  \end{tabular}
+}
+  \end{center}
+\end{table}
+
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU41: Carga actualizaciones de progreso del proyecto
+} \\\hline
+    \multicolumn{2}{|l|}{Actor: Data Entry} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Data Entry está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: Queda cargada en el sistema una actualización del estado del proyecto para que el gerente la vea} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El data entry solicita al sistema actualizar el estado de un proyecto & \\ \hline
+     2- El sistema confirma y pide al data entry que ingrese el proyecto y los detalles del progreso & \\ \hline
+	 3- El data entry ingresa el proyecto y actualiza el estado ingresando los detalles del progreso & \\ \hline
+   4- El sistema lo guarda para que el gerente lo pueda ver cuando entre en el sistema & \\ \hline
+   5- Fin CU41 & \\ \hline
+  \end{tabular}
+}
+  \end{center}
+\end{table}
+
+
+\subsection{En las que actúa el Contador}
+
+\begin{table}[H]
+  \begin{center}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|l|}{CU42: Sistema informa de costos y detalles} \\\hline
+    \multicolumn{2}{|l|}{Actor: Contador} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Contador está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Post: El sistema le brinda los costos y detalles al contador} \\\hline
+     Curso normal & Curso alternativo\\ \hline
+     1- El contador solicita al sistema que le de la informacion de los costos y detalles de una semana/mes/año & \\ \hline
+     2- El sistema confirma y le proporciona al contador la informacion solicitada & \\ \hline
+	 3- Fin CU42 & \\ \hline
+  \end{tabular}
+}
+  \end{center}
+\end{table}
 %\newpage
