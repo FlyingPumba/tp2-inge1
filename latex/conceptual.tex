@@ -114,4 +114,38 @@ Context: PM
 Inv: self.actualizaciones->forAll(a | self.comisionesPM->exists(c | c.proyecto = a.actualizacionDe))
 \end{itemocl}
 
+% ----------- Evaluaciones
+
+\begin{itemocl}{Las evaluaciones de Gerentes a PMs están en un ciclo válido (es decir, el PM y el Gerente estuvieron asignados al proyecto de la evaluación).}
+Context: EvaluacionGerentePM
+Inv: self.PM.comisionesPM->collect(proyecto)->includes(self.proyecto) and self.gerente.supervisa->includes(self.proyecto)
+\end{itemocl}
+
+\begin{itemocl}{Las evaluaciones de Clientes a PMs están en un ciclo válido (es decir, el Cliente y el Gerente estuvieron asignados al proyecto de la evaluación).}
+Context: EvaluacionClientePM
+Inv: self.PM.comisionesPM->collect(proyecto)->includes(self.proyecto) and self.cliente = self.proyecto.cliente
+\end{itemocl}
+
+\begin{itemocl}{Las evaluaciones de Gerentes a PMs están en un ciclo válido (es decir, el PM y el Gerente estuvieron asignados al proyecto de la evaluación).}
+Context: EvaluacionPMProveedor
+Inv: self.PM.comisionesPM->collect(proyecto)->includes(self.proyecto) and self.proyecto.presupuestosProv->select(p | p.contrato->notEmpty())->includes(self.proveedor)
+\end{itemocl}
+
+\begin{itemocl}{Por cada PM cancelado hay una evaluación del Cliente al PM y otra del Gerente al PM.}
+Context: Comision
+Inv: self.estado = cancelada implies (self.proyecto.evalsGerPMProyecto->exists(e | e.PM = self.comisionDe) and self.proyecto.evalsClientePMProyecto->exists(e | e.PM = self.comisionDe))
+\end{itemocl}
+
+\begin{itemocl}{Por cada Proveedor cancelado hay una evaluación del PM a ese Proveedor.}
+Context: ContratoProveedor
+Inv: self.estado = cancelado implies self.presupuesto.presupuestoProvDe.evalsPMProvProyecto->exists(e | e.proveedor = self.presupuesto.proveedor)
+\end{itemocl}
+
+\begin{itemocl}{Si el proyecto terminó, se evaluaron a todos los PMs y Proveedores involucrados.}
+Context: Proyecto
+Inv: self.estado = terminado implies (self.comisionesProyecto->collect(comisionDe)->forAll(pm | self.evalsGerPMProyecto->includes(e | e.PM = pm) and self.evalsClientePMProyecto->exists(e | e.PM = pm)) and self.presupuestosProv->select(pres | pres.contrato->notEmpty())->collect(proveedor)->forAll(prov | self.evalsPMProvProyecto->exists(e | e.proveedor = prov)))
+\end{itemocl}
+
+% ----------- Notificaciones
+
 \end{listocl}
