@@ -11,7 +11,7 @@ sistema trendrá.
 Apesar de todo lo dicho, este modelo es incapaz de modelar todas las interacciones que ocurran fuera del sistema.
 Esta no es la única limitación que posee, dado que si bien podemos modelar un cierto orden en cuanto a los procesos
 que la empresa realiza en el sistema, utilizando las Pre y Post condiciones de los detalles, no podemos dejar
-claro ningun paralelismo que pueda existir entre ellas. Para eso y para otras cosas serán necesarios los demás modelos.   
+claro ningun paralelismo que pueda existir entre ellas. Para eso y para otras cosas serán necesarios los demás modelos.
 
 \subsection{Diagrama de Actividad}
 El primer diagrama de actividad especifica un escenario completo del ciclo de vida de un proyecto con la particularidad de que suponemos que tanto el cliente como los proveedores utilizan el sistema, que, tanto el alcance como el presupuesto, son aceptados en el primer intento y que no hay inconvenientes en la etapa de seguimiento de los proyectos, es decir: el proveedor no cancela, el PM no es reemplazado y el PM carga las actualizaciones periodicas. Aclaramos que en este escenario el PM pide presupuestos a solo dos proveedores (llamados proveedor 1 y 2). Decidimos especificar este escenario porque consideramos que logra co
@@ -25,9 +25,24 @@ Por ultimo el tercer diagrama de actividad especifica un escenario en donde el P
 
 \subsection{Modelo Conceptual}
 
-A partir de la descripción hecho, podemos establecer las siguientes relaciones:
+Este modelo especifica de forma estática los diferentes estados válidos de un proyecto según el sistema. Con eso en mente, nuestro modelo realizado contempla:
+
+\begin{itemize}
+	\item Todo los agentes relacionados con el proyecto desde el punto de vista del Sistema
+	\item Los presupuestos clientes y proveedores y como se relacionan con los contratos que luego se firman
+	\item Comisiones de los PMs
+	\item Los rankings de PMs y Proveedores
+	\item Seguros de caución de los Proveedores y su validez
+	\item Representa estados que muestran cuando hay cambios de PMs y Proovedores
+	\item Actualizaciones de Proyecto
+	\item Notificaciones periódicas y por problemas
+	\item Evaluaciones de proyecto cuando el mismo finaliza
+	\item Los estados y propiedades de un proyecto y todos sus agentes relacionados según el Sistema
+\end{itemize}
+
 \subsection{Casos de uso - Diagrama de Actividad}
 
 \subsection{Diagrama de Actividad - Máquinas de estados finitos}
+
 
 \subsection{Modelo Conceptual??}

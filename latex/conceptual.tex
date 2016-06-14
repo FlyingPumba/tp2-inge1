@@ -1,0 +1,34 @@
+\subsection{Descripción general}
+Nuestro modelo conceptual tiene como principal clase el Proyecto, que es el eje de todo el Sistema y el agente con mas relaciones con los demás. A su vez, se modelan los presupuestos y contratos con los proveedores y clientes. Determinamos que cada presupuesto de un Proveedor es para un proyecto diferente pero que un Cliente puede tener varios presupuestos propuestos para un mismo proyecto. En caso de que esos presupuestos sean aprobados, se crea un Contrato para ese presupuesto (cosa que marcamos con una relación 0..1 contratoCliente/contratoProveedor).
+
+Cada proyecto en sí tiene un Gerente que lo supervisa y un PM actual (pueden haber varios PMs relacionados mediante la clase Comision, pero solo uno es el actual, los demás están porque fueron PMs y en algun momento fueron cancelados). Este PM puede subir actualizaciones de Proyecto y por cada una se genera una actualización.
+
+También modelamos los rankings de Proveedores y PMs, evaluaciones al terminar el proyecto y notificaciones según el agente que la recibe (es decir, si hay una notificación para, por ejemplo, un Gerente y un PM, se generan dos notificaciones distintas en este modelo, una para el Gerente y otra para el PM).
+El caso de los Contadores decidimos modelarlo relacionándolo al Gerente y no al Proyecto porque el Contador ayuda el Gerente y las cobranzas y pagos lo realiza todo externamente al Sistema.
+
+El caso en que un nuevo PM es asignado para un proyecto, se marca la Comisión del viejo PM como cancelada (mediante una propiedad de estado) y se agrega una Comisión a otro PM. En cambio, cuando hay un cambio de Proveedor, el Contrato de ese Proveedor es el que se marca como cancelado (también mediante una propiedad de estado).
+
+Ahora bien, los contratos de los Proveedores pueden ser cancelados pero no lo de los Clientes, ya que consideramos que todo Proyecto se termina llevando a cabo. 
+
+Notar que los Data Entries no los modelamos pues no eran relevantes para el Proyecto en sí.
+
+\subsection{Relación con otros modelos}
+Ahora bien, como explicabamos antes, el modelo conceptual modela los estados, propiedades y relaciones estáticas entre los agentes de un proyecto según el Sistema. Por esto mismo, hay cosas que los demás modelos especifican de forma mas precisa:
+
+Las etapas previas a la creación de un proyecto, el acuerdo de alcance y duración del proyecto con el PM se ven mucho mejor en los diagramas de FSM y Actividad, de hecho, el alcance no lo modelamos pero asumimos que es una propiedad intrínseca del Proyecto que para el Modelo Conceptual es irrelevante.
+La autenticación y los procedimientos de un Usuario en el Sistema y cómo se usa el Sistema en si, está explicado más claramente en el Diagrama de Casos de Uso.
+
+Las notificaciones, como esto afecta al sistema y qué eventos las causan se pueden ver explícitamente en los Diagramas de FSM. 
+
+Los Data Entries también son modelados en los demás Diagramas. 
+
+La cronología en general de todos los eventos del proyecto se explica mejor en el Diagrama de Actividad.
+Los pagos y cobranzas del Contador a cada parte (Cliente, PM, Gerente, Proveedores) se especifica en el Diagrama de Actividad.
+
+\subsection{Observaciones de las Vistas}
+Como se puede ver, hay tres vistas para el Diagrama de Clases, pero estas tres vistas forman en realidad parte de una sola. Las separamos por motivos de claridad pero tienen que ser leídas e interpretadas como parte de un mismo Diagrama de Clases. Por este motivo, marcamos con números las clases que se repiten en las vistas para decir que en realidad son las mismas clases y que todo es parte de un solo y mismo Diagrama.
+
+\subsection{Vistas}
+
+\subsection{OCL}
+Nuestro modelo tendrá las siguientes restricciones:
