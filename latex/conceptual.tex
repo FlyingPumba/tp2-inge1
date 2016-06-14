@@ -151,6 +151,7 @@ Inv: self.estado = terminado implies (self.comisionesProyecto->collect(comisionD
 \begin{itemocl}{Fechas correctas: la fecha de inicio de un proyecto es menor que la de finalización, las fechas de las actualizaciones y notificaciones son mayores o iguales a la fecha de inicio del proyecto}
 Context: Proyecto
 Inv: self.fechaFin < self.fechaInicio and self.actualizaciones->forAll(a | a.fecha >= self.fechaInicio) and self.notisGerenteProyecto->forAll(n | n.fecha >= self.fechaInicio) and self.notisClienteProyecto->forAll(n | n.fecha >= self.fechaInicio) and self.notisPMProyecto->forAll(n | n.fecha >= self.fechaInicio) and self.notisProvProyecto->forAll(n | n.fecha >= self.fechaInicio)
+\end{itemocl}
 
 % Nueva propuesta al Gerente
 % Asignación de PM al PM y al Cliente
