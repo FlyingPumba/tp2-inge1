@@ -148,4 +148,41 @@ Inv: self.estado = terminado implies (self.comisionesProyecto->collect(comisionD
 
 % ----------- Notificaciones
 
+\begin{itemocl}{Fechas correctas: la fecha de inicio de un proyecto es menor que la de finalización, las fechas de las actualizaciones y notificaciones son mayores o iguales a la fecha de inicio del proyecto}
+Context: Proyecto
+Inv: self.fechaFin < self.fechaInicio and self.actualizaciones->forAll(a | a.fecha >= self.fechaInicio) and self.notisGerenteProyecto->forAll(n | n.fecha >= self.fechaInicio) and self.notisClienteProyecto->forAll(n | n.fecha >= self.fechaInicio) and self.notisPMProyecto->forAll(n | n.fecha >= self.fechaInicio) and self.notisProvProyecto->forAll(n | n.fecha >= self.fechaInicio)
+\end{itemocl}
+
+% Nueva propuesta al Gerente
+% Asignación de PM al PM y al Cliente
+% Propuesta de alcance al Cliente
+% Aceptacion de alcance de Cliente al PM
+% Aceptacion de presupuesto de Cliente al Gerente
+% Finalizacion de Proyecto a Gerente
+% Existencia de problema al Gerente
+% A proveedor cuando seguro vencido
+% Respuesta del Proveedor al PM
+% Proveedores elegidos a Proveedores
+% Proyecto validado a Cliente, PMs y Proveedores
+
+\begin{itemocl}{Las notificaciones a Gerentes son al asignado del proyecto.}
+Context: NotificacionGerente
+Inv: self.gerente = self.proyecto.gerente
+\end{itemocl}
+
+\begin{itemocl}{Las notificaciones a Clientes son al del proyecto.}
+Context: NotificacionCliente
+Inv: self.cliente = self.proyecto.cliente
+\end{itemocl}
+
+\begin{itemocl}{Las notificaciones a PMs son a alguno asignado en algún momento al proyecto.}
+Context: NotificacionPM
+Inv: self.proyecto.comisionesProyecto->collect(comisionDe)->exists(pm | pm = self.PM)
+\end{itemocl}
+
+\begin{itemocl}{Las notificaciones a Proveedores son a alguno asignado alguna vez al proyecto.}
+Context: NotificacionProveedor
+Inv: self.proyecto.presupuestosProv->select(p | p.contrato->notEmpty())->collect(proveedor)->exists(prov | prov = self.proveedor)
+\end{itemocl}
+
 \end{listocl}
