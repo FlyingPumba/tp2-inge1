@@ -3,6 +3,18 @@
 En primera instancia tenemos que representar las acciones que los diversos actores realizan en el sistema o a traves de él. Para esto modelaremos nuestro proyecto usando casos de uso, y
 mostraremos los detalles de cada uno de estos.
 
+\subsection{Relación con otros modelos}
+
+Como mencionamos antes, el modelo de casos de uso nos permite representar las interacciones que existen entre
+el sistema y los actores externos a este. Utilizando esta técnica podemos definir el alcance del propio sistema
+en cuanto a que acciones toma ante cada interacción y, además, nos permite definir la interfaz que nuestro
+sistema tendrá.
+
+A pesar de todo lo dicho, este modelo es incapaz de modelar todas las interacciones que ocurran fuera del sistema.
+Esta no es la única limitación que posee, dado que si bien podemos modelar un cierto orden en cuanto a los procesos
+que la empresa realiza en el sistema, utilizando las Pre y Post condiciones de los detalles, no podemos dejar
+claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras cosas serán necesarios los demás modelos.
+
 \subsection{En las que actúa el Cliente}
 
 \begin{figure}[H]
@@ -301,7 +313,7 @@ mostraremos los detalles de cada uno de estos.
      1- El gerente solicita al sistema templates para el contrato & \\ \hline
      2- El sistema muestra los templates para el contrato y le pide al gerente que seleccione un template & \\ \hline
      3- El gerente selecciona un template & \\ \hline
-	 4- El sistema guarda la opcion elegida & \\ \hline     
+	 4- El sistema guarda la opcion elegida & \\ \hline
      5- Fin CU13 & \\ \hline
   \end{tabular}
 }
