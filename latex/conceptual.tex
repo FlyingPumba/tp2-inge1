@@ -1,4 +1,20 @@
 \subsection{Descripción general}
+
+Este modelo especifica de forma estática los diferentes estados válidos de un proyecto según el sistema. Con eso en mente, nuestro modelo realizado contempla:
+
+\begin{itemize}
+	\item Todo los agentes relacionados con el proyecto desde el punto de vista del Sistema
+	\item Los presupuestos clientes y proveedores y como se relacionan con los contratos que luego se firman
+	\item Comisiones de los PMs
+	\item Los rankings de PMs y Proveedores
+	\item Seguros de caución de los Proveedores y su validez
+	\item Representa estados que muestran cuando hay cambios de PMs y Proovedores
+	\item Actualizaciones de Proyecto
+	\item Notificaciones periódicas y por problemas
+	\item Evaluaciones de proyecto cuando el mismo finaliza
+	\item Los estados y propiedades de un proyecto y todos sus agentes relacionados según el Sistema
+\end{itemize}
+
 Nuestro modelo conceptual tiene como principal clase el Proyecto, que es el eje de todo el Sistema y el agente con mas relaciones con los demás. A su vez, se modelan los presupuestos y contratos con los proveedores y clientes. Determinamos que cada presupuesto de un Proveedor es para un proyecto diferente pero que un Cliente puede tener varios presupuestos propuestos para un mismo proyecto. En caso de que esos presupuestos sean aprobados, se crea un Contrato para ese presupuesto (cosa que marcamos con una relación 0..1 contratoCliente/contratoProveedor).
 
 Cada proyecto en sí tiene un Gerente que lo supervisa y un PM actual (pueden haber varios PMs relacionados mediante la clase Comision, pero solo uno es el actual, los demás están porque fueron PMs y en algun momento fueron cancelados). Este PM puede subir actualizaciones de Proyecto y por cada una se genera una actualización.
@@ -186,3 +202,5 @@ Inv: self.proyecto.presupuestosProv->select(p | p.contrato->notEmpty())->collect
 \end{itemocl}
 
 \end{listocl}
+
+Aclaraciones: según nuestro modelo, no es necesario restringir con OCL que ciertos eventos causan un envío de nootificaciones porque es un comportamiento deseado pero no un comportamiento necesario para que la instancia del sistema sea válida. Mediante los otros Diagramas (como el de Actividad) especificamos que ciertos eventos como la creación de un proyecto causa un envío de notificación al Gerente, esto es algo deseado pero no necesario de restringir con OCL.
