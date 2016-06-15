@@ -86,7 +86,7 @@ mostraremos los detalles de cada uno de estos.
     \multicolumn{2}{|l|}{Post: El sistema guarda la aceptación del cliente} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El cliente recibe el alcance & \\ \hline
-     2- El cliente acepta el alcance & 2.1- El cliente rechaza el presupuesto. Ir a CU19\\ \hline
+     2- El cliente acepta el alcance & 2.1- El cliente rechaza el alcance. Ir a CU22\\ \hline
      3- El sistema guarda la aceptación del cliente  &\\ \hline
      4- Fin CU4 & \\ \hline
   \end{tabular}
@@ -222,12 +222,12 @@ mostraremos los detalles de cada uno de estos.
     \multicolumn{2}{|l|}{CU10: Propone presupuesto} \\\hline
     \multicolumn{2}{|l|}{Actor: Proveedor} \\\hline
     \multicolumn{2}{|l|}{Pre: El proveedor está autenticado} \\\hline
-    \multicolumn{2}{|l|}{Post: El proveedor tiene actualizado los datos del seguro de caución} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor le envia el presupuesto al PM} \\\hline
      Curso normal & Curso alternativo\\ \hline
-     1- El proveedor solicita al sistema que le permita actualizar sus datos de seguro de caución & \\ \hline
-     2- El sistema confirma y muestra los datos actuales del proveedor & \\ \hline
-     3- El proveedor carga su nuevo seguro de caución &\\ \hline
-     4- El sistema guarda los nuevos datos del proveedor & \\ \hline
+     1- El proveedor solicita al sistema que le permita cargar el presupuesto para un proyecto & \\ \hline
+     2- El sistema confirma y le pide al proveedor cargar el presupuesto & \\ \hline
+     3- El proveedor carga el presupuesto &\\ \hline
+     4- El sistema guarda los datos y notifica que se guardaron correctamente & \\ \hline
      5- Fin CU10 & \\ \hline
   \end{tabular}
 }
@@ -301,7 +301,8 @@ mostraremos los detalles de cada uno de estos.
      1- El gerente solicita al sistema templates para el contrato & \\ \hline
      2- El sistema muestra los templates para el contrato y le pide al gerente que seleccione un template & \\ \hline
      3- El gerente selecciona un template & \\ \hline
-     4- Fin CU13 & \\ \hline
+	 4- El sistema guarda la opcion elegida & \\ \hline     
+     5- Fin CU13 & \\ \hline
   \end{tabular}
 }
 
@@ -544,7 +545,7 @@ mostraremos los detalles de cada uno de estos.
     \multicolumn{2}{|l|}{Post: El PM acepta el presupuesto del proveedor y lo carga en el sistema, o lo rechaza y no lo carga} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El sistema notifica al PM que el Proveedor propuso un presupuesto & \\ \hline
-     2- El PM analiza el presupuesto enviado, lo acepta y lo carga en el sistema & 2.1- \\ \hline
+     2- El PM analiza el presupuesto enviado, lo acepta y lo carga en el sistema & 2.1- El PM rechaza el presupuesto. Ir a 4 \\ \hline
      3- El sistema guarda el presupuesto aceptado & \\ \hline
      4- Fin CU24 & \\ \hline
  \end{tabular}
