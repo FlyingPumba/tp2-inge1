@@ -17,7 +17,7 @@ Este modelo especifica de forma estática los diferentes estados válidos de un 
 
 Nuestro modelo conceptual tiene como principal clase el Proyecto, que es el eje de todo el Sistema y el agente con mas relaciones con los demás. A su vez, se modelan los presupuestos y contratos con los proveedores y clientes. Determinamos que cada presupuesto de un Proveedor es para un proyecto diferente pero que un Cliente puede tener varios presupuestos propuestos para un mismo proyecto. En caso de que esos presupuestos sean aprobados, se crea un Contrato para ese presupuesto (cosa que marcamos con una relación 0..1 contratoCliente/contratoProveedor).
 
-Cada proyecto en sí tiene un Gerente que lo supervisa y un PM actual (pueden haber varios PMs relacionados mediante la clase Comision, pero solo uno es el actual, los demás están porque fueron PMs y en algun momento fueron cancelados). Este PM puede subir actualizaciones de Proyecto y por cada una se genera una actualización.
+Cada proyecto en sí tiene un Gerente que lo supervisa y un PM actual (pueden haber varios PMs relacionados mediante la clase Comisión, pero solo uno es el actual, los demás están porque fueron PMs y en algún momento fueron cancelados). Este PM puede subir actualizaciones de Proyecto y por cada una se genera una actualización.
 
 También modelamos los rankings de Proveedores y PMs, evaluaciones al terminar el proyecto y notificaciones según el agente que la recibe (es decir, si hay una notificación para, por ejemplo, un Gerente y un PM, se generan dos notificaciones distintas en este modelo, una para el Gerente y otra para el PM).
 El caso de los Contadores decidimos modelarlo relacionándolo al Gerente y no al Proyecto porque el Contador ayuda el Gerente y las cobranzas y pagos lo realiza todo externamente al Sistema.
@@ -29,7 +29,7 @@ Consideramos que tanto los contratos de los Proveedores pueden ser cancelados co
 Notar que los Data Entries no los modelamos pues no eran relevantes para el Proyecto en sí.
 
 \subsection{Relación con otros modelos}
-Ahora bien, como explicabamos antes, el modelo conceptual modela los estados, propiedades y relaciones estáticas entre los agentes de un proyecto según el Sistema. Por esto mismo, hay cosas que los demás modelos especifican de forma mas precisa:
+Ahora bien, como explicábamos antes, el modelo conceptual modela los estados, propiedades y relaciones estáticas entre los agentes de un proyecto según el Sistema. Por esto mismo, hay cosas que los demás modelos especifican de forma mas precisa:
 
 Las etapas previas a la creación de un proyecto, el acuerdo de alcance y duración del proyecto con el PM se ven mucho mejor en los diagramas de FSM y Actividad, de hecho, el alcance lo modelamos asumiendo que guardar todos los alcances acordados y re-acordados del Proyecto para el Modelo Conceptual es irrelevante y solo nos interesa el alcance actual, es decir el último acordado.
 La autenticación y los procedimientos de un Usuario en el Sistema y cómo se usa el Sistema en si, está explicado más claramente en el Diagrama de Casos de Uso.
@@ -100,7 +100,7 @@ Context: Proyecto
 Inv: self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() <= 1
 \end{itemocl}
 
-\begin{itemocl}{Si el proyecto no empezo, no hay contrato de clientes firmados, si empezo hay exactamente un contrato de cliente firmado y al menos un contrato de Proveedor firmado.}
+\begin{itemocl}{Si el proyecto no empezó, no hay contrato de clientes firmados, si empezó hay exactamente un contrato de cliente firmado y al menos un contrato de Proveedor firmado.}
 Context: Proyecto
 Inv: self.estado = noEmpezo implies self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() = 0 and self.estado <> noEmpezo implies (self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() = 1 and self.presupuestosProv->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() > 0)
 \end{itemocl}
@@ -115,7 +115,7 @@ Context: Proyecto
 Inv: self.presupuestosCliente->forAll(pres | pres.cliente = self.cliente)
 \end{itemocl}
 
-\begin{itemocl}{Hay como máximo un PM actual por proyecto (puede ser momentaneamente ninguno cuando se cambia de PM).}
+\begin{itemocl}{Hay como máximo un PM actual por proyecto (puede ser momentáneamente ninguno cuando se cambia de PM).}
 Context: Proyecto
 Inv: self.comisionesProyecto->select(c | c.estado = actual) <= 1
 \end{itemocl}
@@ -148,7 +148,7 @@ Inv: self.PM.comisionesPM->collect(proyecto)->includes(self.proyecto) and self.p
 \end{itemocl}
 
 \begin{itemocl}{Por cada PM cancelado hay una evaluación del Cliente al PM y otra del Gerente al PM.}
-Context: Comision
+Context: Comisión
 Inv: self.estado = cancelada implies (self.proyecto.evalsGerPMProyecto->exists(e | e.PM = self.comisionDe) and self.proyecto.evalsClientePMProyecto->exists(e | e.PM = self.comisionDe))
 \end{itemocl}
 
@@ -203,4 +203,4 @@ Inv: self.proyecto.presupuestosProv->select(p | p.contrato->notEmpty())->collect
 
 \end{listocl}
 
-Aclaraciones: según nuestro modelo, no es necesario restringir con OCL que ciertos eventos causan un envío de nootificaciones porque es un comportamiento deseado pero no un comportamiento necesario para que la instancia del sistema sea válida. Mediante los otros Diagramas (como el de Actividad) especificamos que ciertos eventos como la creación de un proyecto causa un envío de notificación al Gerente, esto es algo deseado pero no necesario de restringir con OCL.
+Aclaraciones: según nuestro modelo, no es necesario restringir con OCL que ciertos eventos causan un envío de notificaciones porque es un comportamiento deseado pero no un comportamiento necesario para que la instancia del sistema sea válida. Mediante los otros Diagramas (como el de Actividad) especificamos que ciertos eventos como la creación de un proyecto causa un envío de notificación al Gerente, esto es algo deseado pero no necesario de restringir con OCL.

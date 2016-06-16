@@ -1,6 +1,6 @@
 \subsection{Interacciones con  el sistema: representado con casos de uso}
 
-En primera instancia tenemos que representar las acciones que los diversos actores realizan en el sistema o a traves de él. Para esto modelaremos nuestro proyecto usando casos de uso, y
+En primera instancia tenemos que representar las acciones que los diversos actores realizan en el sistema o a través de él. Para esto modelaremos nuestro proyecto usando casos de uso, y
 mostraremos los detalles de cada uno de estos.
 
 \subsection{Relación con otros modelos}
@@ -50,7 +50,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
      Curso normal & Curso alternativo\\ \hline
      1- El cliente solicita al sistema que le permita enviar una propuesta & \\ \hline
      2- El sistema confirma y pide al cliente que ingrese su nombre y clave & \\ \hline
-     3- El cliente ingresa su nombre, clave y su propuesta  & 3.1- El cliente ingresa un nombre o cleve incorrectos. Ir a Fin CU2\\ \hline
+     3- El cliente ingresa su nombre, clave y su propuesta  & 3.1- El cliente ingresa un nombre o clave incorrectos. Ir a Fin CU2\\ \hline
      4- El sistema guarda la propuesta del cliente & \\ \hline
      5- Fin CU2 & \\ \hline
   \end{tabular}
@@ -114,7 +114,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \hline
     \multicolumn{2}{|l|}{CU6: Evaluando PM} \\\hline
     \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
-    \multicolumn{2}{|l|}{Pre: El cliente recibio del sistema un pedido de evalución para el PM} \\\hline
+    \multicolumn{2}{|l|}{Pre: El cliente recibió del sistema un pedido de evaluación para el PM} \\\hline
     \multicolumn{2}{|l|}{Post: El cliente evalúa al PM} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El cliente pide al sistema que le permita evaluar al PM & \\ \hline
@@ -196,7 +196,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{CU10: Propone presupuesto} \\\hline
     \multicolumn{2}{|l|}{Actor: Proveedor} \\\hline
     \multicolumn{2}{|l|}{Pre: El proveedor está autenticado} \\\hline
-    \multicolumn{2}{|l|}{Post: El proveedor le envia el presupuesto al PM} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor le envía el presupuesto al PM} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El proveedor solicita al sistema que le permita cargar el presupuesto para un proyecto & \\ \hline
      2- El sistema confirma y le pide al proveedor cargar el presupuesto & \\ \hline
@@ -214,10 +214,10 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{CU11: Sistema avisa que seguro de caución está a punto de expirar} \\\hline
     \multicolumn{2}{|l|}{Actor: Proveedor} \\\hline
     \multicolumn{2}{|l|}{Pre: El proveedor está autenticado} \\\hline
-    \multicolumn{2}{|l|}{Post: El proveedor tiene un mensaje del sistema que le pide que actualize su seguro de caución} \\\hline
+    \multicolumn{2}{|l|}{Post: El proveedor tiene un mensaje del sistema que le pide que actualice su seguro de caución} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El sistema detecta que el seguro de caución del proveedor está próximo a expirar & \\ \hline
-     2- El sistema envía al proveedor un mensaje pidiendole que actualize su seguro de caución & \\ \hline
+     2- El sistema envía al proveedor un mensaje pidiéndole que actualice su seguro de caución & \\ \hline
      3- Fin CU11 & \\ \hline
   \end{tabular}
   \end{adjustbox}
@@ -243,7 +243,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
      2- El sistema confirma y pide al gerente que ingrese los datos & \\ \hline
      3- El gerente ingresa los datos correspondientes al sistema & \\ \hline
      4- El sistema valida que los datos sean correctos & \\ \hline
-     5- El sistema informa que se ingreso el PM al sistema correctamente & 5.1-El sistema informa que la informacion es incorrecta \\ & o que los datos corresponden a un PM existente  \\ & 5.2- Ir a 2 \\ \hline
+     5- El sistema informa que se ingreso el PM al sistema correctamente & 5.1-El sistema informa que la información es incorrecta \\ & o que los datos corresponden a un PM existente  \\ & 5.2- Ir a 2 \\ \hline
      6- Fin CU12 & \\ \hline
   \end{tabular}
   \end{adjustbox}
@@ -257,12 +257,12 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{CU13: Eligiendo template para contrato} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
     \multicolumn{2}{|l|}{Pre: Cliente acepto presupuesto o PM re-asigno proveedor y el gerente está autenticado} \\\hline
-    \multicolumn{2}{|l|}{Post: Se eligio un template} \\\hline
+    \multicolumn{2}{|l|}{Post: Se eligió un template} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El gerente solicita al sistema templates para el contrato & \\ \hline
      2- El sistema muestra los templates para el contrato y le pide al gerente que seleccione un template & \\ \hline
      3- El gerente selecciona un template & \\ \hline
-	 4- El sistema guarda la opcion elegida & \\ \hline
+	 4- El sistema guarda la opción elegida & \\ \hline
      5- Fin CU13 & \\ \hline
   \end{tabular}
   \end{adjustbox}
@@ -281,7 +281,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
 	 1- El gerente solicita al sistema reasignar un PM & \\ \hline
 	 2- El sistema confirma, muestra una lista de los proyectos en curso del gerente \\ y le pide seleccionar el proyecto en el cual quiere reasignar al PM & \\ \hline
 	 3- El gerente selecciona un proyecto & \\ \hline
-     4- El sistema muestra informacion del proyecto, al PM asignado y la lista de PM's (sin el asignado actualmente), \\ le pide al gerente seleccionar un nuevo PM & \\ \hline
+     4- El sistema muestra información del proyecto, al PM asignado y la lista de PM's (sin el asignado actualmente), \\ le pide al gerente seleccionar un nuevo PM & \\ \hline
      5- El gerente selecciona un PM & \\ \hline
 	 6- El sistema informa que se reasigno correctamente & \\ \hline
    7- Ir a CU20 & \\ \hline
@@ -338,7 +338,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
      Curso normal & Curso alternativo\\ \hline
 	 1- El gerente solicita al sistema que agregue un nuevo empleado & \\ \hline
 	 2- El sistema confirma y pide los datos del empleado & \\ \hline
-	 3- El gerente ingresa los datos del empleado & 3.1- El gerente ingresa datos erroneos. Ir a Fin CU17\\ \hline
+	 3- El gerente ingresa los datos del empleado & 3.1- El gerente ingresa datos erróneos. Ir a Fin CU17\\ \hline
    4- El sistema guarda los datos del empleado & \\ \hline
    5- Fin CU17 & \\ \hline
   \end{tabular}
@@ -351,7 +351,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \hline
     \multicolumn{2}{|l|}{CU18: Validando proyecto} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
-    \multicolumn{2}{|l|}{Pre: El Cliente acepto presupuesto o PM redefinio alcance por proveedor cancelado y el gerente está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Pre: El Cliente acepto presupuesto o PM redefinió alcance por proveedor cancelado y el gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El proyecto queda validado en el sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El sistema avisa a gerente que el Cliente aceptó el presupuesto & \\ \hline
@@ -559,7 +559,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{Post: La propuesta de alcance del proyecto queda guardada en el sistema para que el cliente la vea} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El sistema notifica al PM que se lo asigno a un proyecto y le manda los detalles de la propuesta & \\ \hline
-	 2- El PM los recive y formula el alcance para el proyecto. Una vez terminado, lo carga en el sistema& \\ \hline
+	 2- El PM los recibe y formula el alcance para el proyecto. Una vez terminado, lo carga en el sistema& \\ \hline
    3- El sistema lo guarda para que el cliente lo pueda ver cuando entre en el sistema & \\ \hline
    4- Fin CU30 & \\ \hline
   \end{tabular}
@@ -606,7 +606,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \hline
     \multicolumn{2}{|l|}{CU33: Re-asignando proveedores} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
-    \multicolumn{2}{|l|}{Pre: El PM está autenticado y el PM redefinio el alcance} \\\hline
+    \multicolumn{2}{|l|}{Pre: El PM está autenticado y el PM redefinió el alcance} \\\hline
     \multicolumn{2}{|l|}{Post: Se cambia el proveedor asignado al proyecto por otro} \\\hline
      Curso normal & Curso alternativo\\ \hline
      1- El PM pide al sistema la lista de proveedores especificando el rubro & \\ \hline
@@ -628,7 +628,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
   \begin{adjustbox}{max width = \textwidth}
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU34: Autenticandoce} \\\hline
+    \multicolumn{2}{|l|}{CU34: Autenticandose} \\\hline
     \multicolumn{2}{|l|}{Actor: User} \\\hline
     \multicolumn{2}{|l|}{Pre: True} \\\hline
     \multicolumn{2}{|l|}{Post: El User queda autenticado en el sistema} \\\hline
@@ -661,7 +661,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
      2- El sistema confirma y pide al data entry que ingrese los datos & \\ \hline
      3- El data entry ingresa los datos correspondientes al sistema & \\ \hline
      4- El sistema valida que los datos sean correctos & \\ \hline
-     5- El sistema informa que se ingreso el PM al sistema correctamente & 5.1-El sistema informa que la informacion es incorrecta \\ & o que los datos corresponden a un PM existente  \\ & 5.2- Ir a 2 \\ \hline
+     5- El sistema informa que se ingreso el PM al sistema correctamente & 5.1-El sistema informa que la información es incorrecta \\ & o que los datos corresponden a un PM existente  \\ & 5.2- Ir a 2 \\ \hline
      6- Fin CU35 & \\ \hline
   \end{tabular}
   \end{adjustbox}
@@ -681,7 +681,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
      2- El sistema confirma y pide al data entry que ingrese los datos & \\ \hline
      3- El data entry ingresa los datos correspondientes al sistema & \\ \hline
      4- El sistema valida que los datos sean correctos & \\ \hline
-     5- El sistema informa que se ingreso al proveedor al sistema correctamente & 5.1-El sistema informa que la informacion es incorrecta \\ & o que los datos corresponden a un proveedor existente  \\ & 5.2- Ir a 2 \\ \hline
+     5- El sistema informa que se ingreso al proveedor al sistema correctamente & 5.1-El sistema informa que la información es incorrecta \\ & o que los datos corresponden a un proveedor existente  \\ & 5.2- Ir a 2 \\ \hline
      6- Fin CU36 & \\ \hline
   \end{tabular}
   \end{adjustbox}
@@ -696,10 +696,10 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{CU37: Actualizando datos de proveedores} \\\hline
     \multicolumn{2}{|l|}{Actor: Data Entry} \\\hline
     \multicolumn{2}{|l|}{Pre: El data entry está autenticado} \\\hline
-    \multicolumn{2}{|l|}{Post: La informacion de los proveedores se actualiza en el sistema} \\\hline
+    \multicolumn{2}{|l|}{Post: La información de los proveedores se actualiza en el sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El data entry solicita al sistema que actualice los datos de proveedores & \\ \hline
-     2- El sistema confirma y muestra el listado de los proveedores pidiendole al data entry \\ que seleccione los que quiera modificar & \\ \hline
+     2- El sistema confirma y muestra el listado de los proveedores pidiéndole al data entry \\ que seleccione los que quiera modificar & \\ \hline
      3- El data entry selecciona uno o mas proveedores & \\ \hline
      4- El sistema muestra los datos actuales de un proveedor seleccionado & \\ \hline
      5- El data entry modifica los datos del proveedor & \\ \hline
@@ -743,7 +743,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
 	 1- El data entry solicita al sistema reasignar un PM & \\ \hline
 	 2- El sistema confirma, muestra una lista de los proyectos en curso \\ y le pide seleccionar el proyecto en el cual quiere reasignar al PM & \\ \hline
 	 3- El data entry selecciona un proyecto & \\ \hline
-     4- El sistema muestra informacion del proyecto, al PM asignado y la lista de PM's (sin el asignado actualmente), \\ le pide al data entry seleccionar un nuevo PM & \\ \hline
+     4- El sistema muestra información del proyecto, al PM asignado y la lista de PM's (sin el asignado actualmente), \\ le pide al data entry seleccionar un nuevo PM & \\ \hline
      5- El data entry selecciona un PM & \\ \hline
 	 6- El sistema informa que se reasigno correctamente & \\ \hline
      7- Ir a CU20 & \\ \hline
@@ -767,7 +767,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
 	 3- El data entry selecciona uno de los actores & \\ \hline
      4- El sistema muestra la encuesta del actor seleccionado y pide al data entry completarla & \\ \hline
      5- El data entry completa la encuesta y pide al sistema que la guarde & \\ \hline
-	 6- El sistema guarda la evaluacion y notifica que se guardo correctamente& \\ \hline
+	 6- El sistema guarda la evaluación y notifica que se guardo correctamente& \\ \hline
      7- El sistema le pregunta al data entry si desea cargar mas evaluaciones & \\ \hline
 	 8- Si el data entry quiere completar mas evaluaciones Ir a 2 sino Fin CU40 & \\ \hline
   \end{tabular}
@@ -810,8 +810,8 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{Pre: El Contador está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El sistema le brinda los costos y detalles al contador} \\\hline
      Curso normal & Curso alternativo\\ \hline
-     1- El contador solicita al sistema que le de la informacion de los costos y detalles de una semana/mes/año & \\ \hline
-     2- El sistema confirma y le proporciona al contador la informacion solicitada & \\ \hline
+     1- El contador solicita al sistema que le de la información de los costos y detalles de una semana/mes/año & \\ \hline
+     2- El sistema confirma y le proporciona al contador la información solicitada & \\ \hline
 	 3- Fin CU42 & \\ \hline
   \end{tabular}
   \end{adjustbox}
