@@ -121,7 +121,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
      2- El sistema confirma y pide al cliente su nombre y clave. & \\ \hline
      3- El cliente ingresa su nombre y clave & 3.1- El cliente ingresa un nombre o clave incorrectos. Ir a FinCU6\\ \hline
      4- El sistema confirma al cliente y muestra la encuesta para evaluar al PM & \\ \hline
-     5- El cliente completa la encuesta y pide al sistema que la guarde & \\ \hline
+     5- El cliente completa la encuesta con una calificación y un comentario, después pide al sistema que la guarde & \\ \hline
      6- El sistema guarda la encuesta & \\ \hline
      7- Fin CU6 & \\ \hline
   \end{tabular}
@@ -295,15 +295,15 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
   \begin{adjustbox}{max width = \textwidth}
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU15: Creando proyecto y asignar PM} \\\hline
+    \multicolumn{2}{|l|}{CU15: Creando proyecto y asignando PM} \\\hline
     \multicolumn{2}{|l|}{Actor: Gerente} \\\hline
     \multicolumn{2}{|l|}{Pre: El gerente está autenticado y Cliente envío una propuesta} \\\hline
     \multicolumn{2}{|l|}{Post: Se creo un nuevo proyecto en el sistema con un PM asignado} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El sistema informa al gerente de la nueva propuesta y le pide que cree un proyecto & \\ \hline
-	 2- El gerente crea un nuevo proyecto con los detalles de la propuesta & \\ \hline
+	 2- El gerente crea un nuevo proyecto con los detalles de la propuesta y este queda marcado como no empezado & \\ \hline
 	 3- El sistema muestra la lista de PM's y le pide al gerente elegir uno & \\ \hline
-     4- El gerente selecciona un PM & \\ \hline
+     4- El gerente selecciona un PM& \\ \hline
 	 5- El sistema informa que se creo el proyecto con el PM asignado exitosamente & \\ \hline
      6- Fin CU15 & \\ \hline
   \end{tabular}
@@ -320,7 +320,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{Post: El gerente evalúo al PM} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El sistema avisa al gerente que termino el proyecto & \\ \hline
-	 2- El gerente evalúa al PM & \\ \hline
+	 2- El gerente evalúa al PM con una calificación y un comentario& \\ \hline
 	 3- El sistema guarda la evaluación & \\ \hline
    4- Fin CU16 & \\ \hline
   \end{tabular}
@@ -355,7 +355,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{Post: El proyecto queda validado en el sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El sistema avisa a gerente que el Cliente aceptó el presupuesto & \\ \hline
-	 2- El gerente revisa el proyecto y lo valida & \\ \hline
+	 2- El gerente revisa el proyecto y lo valida, marcándolo como empezado en el sistema & \\ \hline
    3- Fin CU18 & \\ \hline
   \end{tabular}
   \end{adjustbox}
@@ -386,7 +386,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{Pre: El gerente está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El PM queda evaluado negativamente y el gerente está autenticado} \\\hline
      Curso normal & Curso alternativo\\ \hline
-  	 1- El Gerente evalúa al PM & \\ \hline
+  	 1- El Gerente evalúa negativamente al PM con una calificación y un comentario& \\ \hline
   	 2- El sistema guarda la evaluación &\\ \hline
      3- Fin CU20 & \\ \hline
  \end{tabular}
@@ -477,7 +477,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{Pre: El gerente valido el proyecto y el PM está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El proveedor que cancelo queda evaluado negativamente en el sistema} \\\hline
      Curso normal & Curso alternativo\\ \hline
-     1- El PM evalúa al proveedor negativamente & \\ \hline
+     1- El PM evalúa al proveedor negativamente con una calificación y un comentario & \\ \hline
   	 2- El sistema guarda la evaluación & \\ \hline
      3- Fin CU25 & \\ \hline
  \end{tabular}
@@ -526,7 +526,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{Pre: Finalizo el proyecto y el PM está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El PM evalúo al proveedor} \\\hline
      Curso normal & Curso alternativo\\ \hline
-	 1- El PM evalúa al proveedor & \\ \hline
+	 1- El PM evalúa al proveedor con una calificación y un comentario & \\ \hline
 	 2- El sistema guarda la evaluación & \\ \hline
    3- Fin CU28 & \\ \hline
   \end{tabular}
@@ -721,7 +721,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
      Curso normal & Curso alternativo\\ \hline
 	 1- El data entry solicita al sistema que cree un nuevo proyecto & \\ \hline
      2- El sistema confirma y pide al data entry que ingrese los datos & \\ \hline
-	 3- El data entry crea un nuevo proyecto con los detalles de la propuesta & \\ \hline
+	 3- El data entry crea un nuevo proyecto con los detalles de la propuesta y este queda marcado como no empezado & \\ \hline
 	 4- El sistema muestra la lista de PM's y le pide al data entry elegir uno & \\ \hline
      5- El data entry selecciona un PM & \\ \hline
 	 6- El sistema informa que se creo el proyecto con el PM asignado exitosamente & \\ \hline
