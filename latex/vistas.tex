@@ -61,7 +61,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
   \begin{adjustbox}{max width = \textwidth}
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU3: Aceptando o rechazando presupuesto} \\\hline
+    \multicolumn{2}{|l|}{CU3: Aceptando presupuesto} \\\hline
     \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
     \multicolumn{2}{|l|}{Pre: Gerente propuso presupuesto} \\\hline
     \multicolumn{2}{|l|}{Post: El sistema guarda la aceptación del cliente} \\\hline
@@ -78,7 +78,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
   \begin{adjustbox}{max width = \textwidth}
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU4: Aceptando o rechazando alcance} \\\hline
+    \multicolumn{2}{|l|}{CU4: Aceptando alcance} \\\hline
     \multicolumn{2}{|l|}{Actor: Cliente} \\\hline
     \multicolumn{2}{|l|}{Pre: PM propuso alcance} \\\hline
     \multicolumn{2}{|l|}{Post: El sistema guarda la aceptación del cliente} \\\hline
@@ -455,7 +455,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
   \begin{adjustbox}{max width = \textwidth}
   \begin{tabular}{|l|l|}
     \hline
-    \multicolumn{2}{|l|}{CU24: Aceptando o rechazando presupuesto y lo carga en el sistema} \\\hline
+    \multicolumn{2}{|l|}{CU24: Aceptando presupuesto y lo carga en el sistema} \\\hline
     \multicolumn{2}{|l|}{Actor: PM} \\\hline
     \multicolumn{2}{|l|}{Pre: El Proveedor propuso presupuesto y el PM está autenticado} \\\hline
     \multicolumn{2}{|l|}{Post: El PM acepta el presupuesto del proveedor y lo carga en el sistema, o lo rechaza y no lo carga} \\\hline
@@ -577,7 +577,7 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \multicolumn{2}{|l|}{Post: Queda cargada en el sistema una actualización del estado del proyecto para que el gerente la vea} \\\hline
      Curso normal & Curso alternativo\\ \hline
 	 1- El PM actualiza el estado del proyecto ingresando los detalles del progreso & \\ \hline
-   2- El sistema lo guarda para que el gerente lo pueda ver cuando entre en el sistema & \\ \hline
+   2- El sistema lo guarda con la fecha del día para que el gerente lo pueda ver cuando entre en el sistema & \\ \hline
    3- Fin CU31 & \\ \hline
   \end{tabular}
   \end{adjustbox}
@@ -807,12 +807,14 @@ claro ningún paralelismo que pueda existir entre ellas. Para eso y para otras c
     \hline
     \multicolumn{2}{|l|}{CU42: Sistema informa de costos y detalles} \\\hline
     \multicolumn{2}{|l|}{Actor: Contador} \\\hline
-    \multicolumn{2}{|l|}{Pre: El Contador está autenticado} \\\hline
+    \multicolumn{2}{|l|}{Pre: True} \\\hline
     \multicolumn{2}{|l|}{Post: El sistema le brinda los costos y detalles al contador} \\\hline
      Curso normal & Curso alternativo\\ \hline
-     1- El contador solicita al sistema que le de la información de los costos y detalles de una semana/mes/año & \\ \hline
-     2- El sistema confirma y le proporciona al contador la información solicitada & \\ \hline
-	 3- Fin CU42 & \\ \hline
+     1- El contador solicita al sistema que le de la información de los costos & \\ \hline
+     2- El sistema pregunta que mes/semana/año & \\ \hline
+     3- El contador completa mes/semana/año & \\ \hline
+     4- El sistema da la información & \\ \hline
+	 5- Fin CU42 & \\ \hline
   \end{tabular}
   \end{adjustbox}
 \end{table}
