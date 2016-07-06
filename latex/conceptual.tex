@@ -12,7 +12,7 @@ Este modelo especifica de forma estática los diferentes estados válidos de un 
 	\item Actualizaciones de Proyecto
 	\item Notificaciones periódicas y por problemas
 	\item Evaluaciones de proyecto cuando el mismo finaliza
-	\item Los estados y propiedades de un proyecto y todos sus agentes relacionados según el Sistema
+	\item Las fases y propiedades de un proyecto y todos sus agentes relacionados según el Sistema
 \end{itemize}
 
 Nuestro modelo conceptual tiene como principal clase el Proyecto, que es el eje de todo el Sistema y el agente con mas relaciones con los demás. A su vez, se modelan los presupuestos y contratos con los proveedores y clientes. Determinamos que cada presupuesto de un Proveedor es para un proyecto diferente pero que un Cliente puede tener varios presupuestos propuestos para un mismo proyecto. En caso de que esos presupuestos sean aprobados, se crea un Contrato para ese presupuesto (cosa que marcamos con una relación 0..1 contratoCliente/contratoProveedor).
@@ -102,7 +102,7 @@ Inv: self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.
 
 \begin{itemocl}{Si el proyecto no empezó, no hay contrato de clientes firmados, si empezó hay exactamente un contrato de cliente firmado y al menos un contrato de Proveedor firmado.}
 Context: Proyecto
-Inv: self.estado = noEmpezo implies self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() = 0 and self.estado <> noEmpezo implies (self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() = 1 and self.presupuestosProv->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() > 0)
+Inv: self.fase = noEmpezo implies self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() = 0 and self.fase <> noEmpezo implies (self.presupuestosCliente->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() = 1 and self.presupuestosProv->select(pres | pres.contrato->notEmpty() and pres.contrato.estado = firmado)->size() > 0)
 \end{itemocl}
 
 \begin{itemocl}{La suma de los presupuestos de los Proveedores que firmaron un contrato es menor al presupuesto que se le manda al cliente.}
@@ -159,7 +159,7 @@ Inv: self.estado = cancelado implies self.presupuesto.presupuestoProvDe.evalsPMP
 
 \begin{itemocl}{Si el proyecto terminó, se evaluaron a todos los PMs y Proveedores involucrados.}
 Context: Proyecto
-Inv: self.estado = terminado implies (self.comisionesProyecto->collect(comisionDe)->forAll(pm | self.evalsGerPMProyecto->includes(e | e.PM = pm) and self.evalsClientePMProyecto->exists(e | e.PM = pm)) and self.presupuestosProv->select(pres | pres.contrato->notEmpty())->collect(proveedor)->forAll(prov | self.evalsPMProvProyecto->exists(e | e.proveedor = prov)))
+Inv: self.fase = terminado implies (self.comisionesProyecto->collect(comisionDe)->forAll(pm | self.evalsGerPMProyecto->includes(e | e.PM = pm) and self.evalsClientePMProyecto->exists(e | e.PM = pm)) and self.presupuestosProv->select(pres | pres.contrato->notEmpty())->collect(proveedor)->forAll(prov | self.evalsPMProvProyecto->exists(e | e.proveedor = prov)))
 \end{itemocl}
 
 % ----------- Notificaciones
